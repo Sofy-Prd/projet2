@@ -1,0 +1,75 @@
+<h1>MODIFIER MON PROFIL</h1>
+
+<form action="/edit-profil" method="POST">
+  {{!-- <p>
+    <label for="id">ObjectId: </label>
+    <input type="text" name="id" value="{{user._id}}">    
+  </p> --}}
+  <p>
+    Identifiant/Pseudo: {{user.username}}    
+  </p>
+  
+  <p>
+    <label for="nom">Nom de famille: </label>
+    <input type="text" name="nom" value="{{user.nom}}">    
+  </p>
+
+  <p>
+    <label for="email">Adresse mail: </label>
+    <input type="text" name="email" value="{{user.email}}">    
+  </p>
+
+  <p>
+    <label for="telephone1">Téléphone 1: </label>
+    <input type="text" name="telephone1" value="{{user.telephone1.numero}}">    
+  </p>
+
+  <p>
+    <label for="telephone2">Téléphone 2: </label>
+    <input type="text" name="telephone2" value="{{user.telephone2.numero}}">    
+  </p>
+
+  <p>
+    <label for="telephone3">Téléphone 3: </label>
+    <input type="text" name="telephone3" value="{{user.telephone3.numero}}">    
+  </p>
+
+  {{!-- <p>
+    <label for="password">Mot de passe: </label>
+      <input type="password" name="password" value="{{user.password}}">
+  </p> --}}
+
+  {{!-- <p>
+    Adresse :
+    <label for="rue">Rue: </label>
+    <input type="text" name="rue" value="{{user.adresse}}{{rue}}">
+    <label for="codePostal">Code Postal: </label>
+    <input type="text" name="codePostal" value="{{user.adresse}}{{codePostal}}">
+    <label for="ville">Ville : </label>
+    <input type="text" name="ville" value="{{user.adresse}}{{ville}}">
+  </p> --}}
+
+  {{!-- <p>
+    Numéros de téléphone :
+    <label for="telephone1">Tel 1: </label>
+    <input type="text" name="telephone1" value="{{user.telephone1}}">
+    <label for="telephone2">Tel 2: </label>
+    <input type="text" name="telephone2" value="{{user.telephone2}}">
+    <label for="telephone3">Tel 3: </label>
+    <input type="text" name="telephone3" value="{{user.telephone3}}">
+  </p> --}}
+
+
+{{!-- possibilité d'ajouter/retirer un adherent --}}
+  {{!-- <ul>
+    {{#each user.adherent}}
+      <li>Adhérent: {{this.prenom}}</li>
+    {{/each}}
+  </ul> --}}
+
+  <button>ENREGISTRER LES MODIFICATIONS</button>
+
+</form>
+
+
+

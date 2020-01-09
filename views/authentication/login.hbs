@@ -1,0 +1,21 @@
+<h1>CONNEXION</h1>
+
+<form action="/login" method="post">
+  <p>
+    <label for="username">Identifiant: </label>
+    <input type="text" name="username">    
+  </p>
+
+  <p>
+    <label for="password">Mot de passe: </label>
+      <input type="password" name="password">
+  </p>
+
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+
+  <a href="/modifPwd">J'AI OUBLIE MON MOT DE PASSE</a>
+
+  <button type="submit">SE CONNECTER</button>
+</form>

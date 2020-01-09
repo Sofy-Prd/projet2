@@ -1,0 +1,37 @@
+<h1>MON PROFIL</h1>
+
+<p>
+  Identifiant/Pseudo: {{user.username}} 
+</p>
+  
+<p>
+  Nom de famille: {{user.nom}}   
+</p>
+
+<p>
+  Adresse mail: {{user.email}}    
+</p>
+
+<p>
+  téléphone 1: {{user.telephone1.numero}}    
+</p>
+
+<p>
+  téléphone 2: {{user.telephone2.numero}}    
+</p>
+
+<p>
+  téléphone 3: {{user.telephone3.numero}}    
+</p>
+
+
+<ul>
+  {{#each user.adherent}}
+    <li>Adhérent: {{this.prenom}}  Cours :</li>
+  {{/each}}
+</ul>
+
+  <a href="/edit-profil">MODIFIER PROFIL</a>
+  <a href="/modifPwd">MODIFIER LE MOT DE PASSE</a>
+  <a href="/mon-accueil">ACCUEIL</a>
+</form>
