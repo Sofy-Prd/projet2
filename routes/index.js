@@ -22,10 +22,10 @@ router.get("/mon-accueil", (req, res) => {
     return;
   }
   
-  // if (user.modifPwd===true) {
-  //   res.redirect('authentication/mofifPwd'); // not logged-in
-  //   return;
-  // }
+  if (req.user.modifPwd===true) {
+    res.redirect('/modifPwd'); 
+    return;
+  }
 
   // ok, req.user is defined
   res.render("espacePerso/mon-accueil", { user: req.user });
@@ -34,7 +34,7 @@ router.get("/mon-accueil", (req, res) => {
 //Profil (private page)
 router.get("/profil", (req, res) => {
   if (!req.user) {
-    res.redirect('authentication/login'); // not logged-in
+    res.redirect('/login'); // not logged-in
     return;
   }
 
@@ -53,33 +53,19 @@ router.get("/edit-profil", (req, res) => {
 
 });
 
-// router.post('/profil-edit', (req, res, next) => {
-//   const userId = user._id;
-//   const userInfo = {
-//   nom: req.body.nom,
-//   email:req.body.email,
-//   // telephone1: req.body.telephone1,
-//   // telephone2: req.body.telephone2,
-//   // telephone3: req.body.telephone3
-//   };
-
-//   User.findByIdAndUpdate({userId}, {userInfo})
-//   .then(user => res.redirect('espacePerso/profil')) 
-//   .catch(err => next(err))
-//      ;
-
-// });
-    // req.session.currentUser = theUser;
-
-    
+   
     router.post("/edit-profil", (req, res, next) => {
-          if (req.user) {
+    if (req.user) {
       User.updateOne({ _id: req.user._id  }, { $set : {
-         name: req.body.name,
-         nom: req.body.nom,
         email: req.body.email,
+        rue: req.body.rue,
+        codePostal: req.body.codePostal,
+        ville: req.body.ville,
+        telephone1:req.body.telephone1,
+        telephone2:req.body.telephone2,
+        telephone3:req.body.telephone3,
       }})
-        .then(user => res.redirect("/mon-accueil"))
+        .then(user => res.redirect("/profil"))
         .catch(err => next(err))
       ;
       }

@@ -86,4 +86,3 @@ const p4 = coursDatas.forEach(cour => {
     }).catch(err => console.error(err)); 
   }).catch(err => console.error(err));
 }); 
-

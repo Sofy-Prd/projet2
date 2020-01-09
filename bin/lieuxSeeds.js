@@ -30,3 +30,4 @@ var sallesDatas = [
 
 Lieu.create(sallesDatas)
 .then(lieux => console.log(`${lieux.length} salles créés!`));
+

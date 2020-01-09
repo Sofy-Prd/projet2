@@ -26,3 +26,4 @@ var tarifsDatas = [
 
 Tarif.create(tarifsDatas)
 .then(tarifs => console.log(`${tarifs.length} tarifs créés!`));
+

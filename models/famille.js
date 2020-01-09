@@ -6,10 +6,12 @@ const FamilleSchema = new Schema({
   password: String,
   modifPwd: Boolean,
   nom: String,
-  adresse: { rue: String, codePostal: Number, ville: String },
-  telephone1: { numero: String, envoiSMS: Boolean },
-  telephone2: { numero: String, envoiSMS: Boolean },
-  telephone3: { numero: String, envoiSMS: Boolean },
+  rue: String,
+  codePostal: String,
+  ville: String,
+  telephone1:String,
+  telephone2: String,
+  telephone3:String,
   email: String,
   adherent: [ 
     {

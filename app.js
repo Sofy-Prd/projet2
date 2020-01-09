@@ -93,10 +93,10 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const authRoutes = require('./routes/authentication');
-const persoRoutes = require('./routes/espacePerso');
+
 
 app.use('/', authRoutes);
-app.use('/espacePerso', persoRoutes);
+
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

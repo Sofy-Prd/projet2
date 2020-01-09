@@ -43,3 +43,4 @@ var profsDatas = [
 
 Prof.create(profsDatas)
 .then(profs => console.log(`${profs.length} profs créés!`));
+

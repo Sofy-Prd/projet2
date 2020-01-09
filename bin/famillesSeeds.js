@@ -23,19 +23,11 @@ var famillesDatas = [
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
     nom: 'DA SILVA',
-    adresse: {
-      rue: '42 av des Pyrenées',
-      codePostal: '77270',
-      ville: 'Villeparisis'
-    },
-    telephone1: {
-      numero: '0605040302',
-      envoiSMS: true
-    },
-    telephone2: {
-      numero: '0615243342', 
-      envoiSMS: false
-    },
+    rue: '42 av des Pyrenées',
+    codePostal: '77270',
+    ville: 'Villeparisis',
+    telephone1: '0605040302',
+    telephone2:'0615243342',     
     email: 'sophie.pirodon@gmail.com',
     adherent: [
       {
@@ -73,19 +65,11 @@ var famillesDatas = [
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
     nom: 'MARTIN',
-    adresse: {
-      rue: '12 RUE ISAAC NEWTON',
-      codePostal: '93290',
-      ville: 'Tremblay en France'
-    },
-    telephone1: {
-      numero: '0605040306',
-      envoiSMS: true
-    },
-    telephone2: {
-      numero: '0615243346',
-      envoiSMS: false
-    },
+    rue: '12 RUE ISAAC NEWTON',
+    codePostal: '93290',
+    ville: 'Tremblay en France',
+    telephone1: '0605040306',
+    telephone2:'0615243346',
     email: 'sophie.pirodon@gmail.com',
     adherent: [
       {
@@ -105,19 +89,11 @@ var famillesDatas = [
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
     nom: 'DUPOND',
-    adresse: {
-      rue: '9 Avenue des Lilas',
-      codePostal: '93290',
-      ville: 'Tremblay en France'
-      },
-    telephone1: {
-      numero: '0605040307',
-      envoiSMS: true
-    },
-    telephone2: {
-      numero:'0615243347', 
-      envoiSMS: false
-      },
+    rue: '9 Avenue des Lilas',
+    codePostal: '93290',
+    ville: 'Tremblay en France',
+    telephone1: '0605040307',
+    telephone2: '0615243347', 
     email: 'sophie.pirodon@gmail.com',
     adherent: [
       {
@@ -155,19 +131,11 @@ var famillesDatas = [
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
     nom: 'JAOUANI',
-    adresse: {
-      rue: '52 ALLEE JOHANNES KEPLER',
-      codePostal: '93290',
-      ville: 'Tremblay en France'
-      },
-    telephone1: {
-      numero: '0605040310',
-      envoiSMS: true
-    },
-    telephone2: {
-      numero:'0615243350',
-      envoiSMS: false
-    },
+    rue: '52 ALLEE JOHANNES KEPLER',
+    codePostal: '93290',
+    ville: 'Tremblay en France',
+    telephone1: '0605040310',
+    telephone2: '0615243350',
     email: 'sophie.pirodon@gmail.com',
     adherent: [
       {
@@ -187,19 +155,11 @@ var famillesDatas = [
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
     nom: 'SUNDI',
-    adresse: {
-      rue: '25 av du Pré Gobelin',
-      codePostal: '93290',
-      ville: 'Tremblay en France'
-      },
-    telephone1: {
-      numero: '0605040311',
-      envoiSMS: true
-      },
-    telephone2: {
-      numero: '0615243351', 
-      envoiSMS: false
-      },
+    rue: '25 av du Pré Gobelin',
+    codePostal: '93290',
+    ville: 'Tremblay en France',
+    telephone1: '0605040311',
+    telephone2: '0615243351',
     email: 'sophie.pirodon@gmail.com',
     adherent: [
       {
@@ -241,3 +201,4 @@ const p5 = famillesDatas.forEach(famille => {
     }).catch(err => console.error(err));
   } 
 });
+
