@@ -21,54 +21,86 @@ var coursDatas = [
     duree: '1H'
   },
   {
-    nom: 'Afrovibe',
-    prof: 'Angelina',
-    lieu: 'Espace 110',
-    jour: 'Jeudi',
-    horaire: '20H00-22H00',
+    nom: 'Initiation',
+    prof: 'Lucile',
+    lieu: 'Salle des Associations du Centre Ville',
+    jour: 'Samedi',
+    horaire: '11H30-12H30',
+    duree: '1H'
+  },
+  {
+    nom: '1er niveau',
+    prof: 'Lucile',
+    lieu: 'Salle des Associations du Centre Ville',
+    jour: 'Samedi',
+    horaire: '15H-16H',
+    duree: '1H'
+  },
+  {
+    nom: '2e niveau A',
+    prof: 'Lucile',
+    lieu: 'Salle des Associations du Centre Ville',
+    jour: 'Samedi',
+    horaire: '13H-14H',
+    duree: '1H'
+  },
+  {
+    nom: '2e niveau B',
+    prof: 'Lucile',
+    lieu: 'Salle des Associations du Centre Ville',
+    jour: 'Samedi',
+    horaire: '14H-15H',
+    duree: '1H'
+  },
+  {
+    nom: '3e niveau',
+    prof: 'Claudia',
+    lieu: 'Gymnase Guimier',
+    jour: 'Vendredi',
+    horaire: '18H30-20H',
+    duree: '1H30'
+  },
+  {
+    nom: '4e niveau',
+    prof: 'Claudia',
+    lieu: 'Gymnase Guimier',
+    jour: 'Vendredi',
+    horaire: '20H-22H',
     duree: '2H'
   },
   {
     nom: 'Ados',
     prof: 'Marie',
-    lieu: 'Espace 110',
-    jour: 'Mercredi',
-    horaire: '18H00-19H30',
-    duree: '1H30'
+    lieu: 'Salle Dossisard',
+    jour: 'Mardi',
+    horaire: '18H30-20H30',
+    duree: '2H'
+  },
+  {
+    nom: 'Afrovibe',
+    prof: 'Angelina',
+    lieu: 'Salle Dossisard',
+    jour: 'Mardi',
+    horaire: '20H30-21H30',
+    duree: '1H'
+  },
+  {
+    nom: 'Jeunes Adultes',
+    prof: 'Cassandre',
+    lieu: 'Salle Dossisard',
+    jour: 'Jeudi',
+    horaire: '20H00-22H00',
+    duree: '2H'
   },
   {
     nom: 'Adultes',
     prof: 'Claudia',
     lieu: 'Espace 110',
-    jour: 'Jeudi',
+    jour: 'Lundi',
     horaire: '20H00-22H00',
     duree: '2H'
   },
-  {
-    nom: '1er niveau',
-    prof: 'Cassandre',
-    lieu: 'Espace 110',
-    jour: 'Jeudi',
-    horaire: '20H00-22H00',
-    duree: '2H'
-  },
-  {
-    nom: '2e niveau A',
-    prof: 'Cassandre', 
-    lieu: 'Espace 110',
-    jour: 'Jeudi',
-    horaire: '20H00-22H00',
-    duree: '2H'
-  },
-  {
-    nom: '3e niveau',
-    prof: 'Cassandre', 
-    lieu: 'Espace 110',
-    jour: 'Jeudi',
-    horaire: '20H00-22H00',
-    duree: '2H'
-  }
-   
+    
 ];
 
 const p4 = coursDatas.forEach(cour => {

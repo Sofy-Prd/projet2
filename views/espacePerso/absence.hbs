@@ -1,0 +1,16 @@
+<form action="/absence" method="post">
+    <h1>Prévenir de l'absence de :</h1>
+      <ul>
+        {{#each user.adherent}}
+        <li>
+          <label for="nom">Nom adhérent:</label><input type="text" name="nom" value="{{this.nom}}"/><label for="prenom">Prénom adhérent:</label><input type="text" name="prenom" value="{{this.prenom}}"/>
+          <textarea name="motif" rows="3" cols="10">Motif</textarea>
+        </li> 
+        {{/each}}
+      </ul>
+
+  <button>ENREGISTRER</button>  
+</form>
+  
+  <a href="/mon-accueil">ACCUEIL</a>
+  <a href="/logout">QUITTER MON ESPACE</a>
