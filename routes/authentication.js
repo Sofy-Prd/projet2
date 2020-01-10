@@ -5,7 +5,6 @@ const passport = require('passport');
 
 const User = require('../models/famille');
 
-
 const bcryptSalt = 10;
 
 
@@ -41,32 +40,29 @@ router.post("/modifPwd", (req, res, next) => {
     const password2 = req.body.password2;
     const salt = bcrypt.genSaltSync(bcryptSalt);
 
-    
-
   //Check password1 and password2 are not empty
-  if (password1 === "" || password2 === "" ) {
-    console.log ('mdp vide');
-    res.render("authentication/modifPwd", { errorMessage: "Le mot de passe ne peut pas être vide" });
-    return;
-  }
+    if (password1 === "" || password2 === "" ) {
+      console.log ('mdp vide');
+      res.render("authentication/modifPwd", { errorMessage: "Le mot de passe ne peut pas être vide" });
+      return;
+    }
 
   //on verifie que les deux mdp sont identiques
-  if (password1 !== password2) {
-    res.render("authentication/modifPwd", { errorMessage: "Les deux mots de passe ne sont pas identiques" });
-    return;
-  }
+    if (password1 !== password2) {
+      res.render("authentication/modifPwd", { errorMessage: "Les deux mots de passe ne sont pas identiques" });
+      return;
+    }
 
-  const hashPassNew = bcrypt.hashSync(req.body.password1, salt);
-  const user=req.user;
-  user.modifPwd=false;
-  user.password=hashPassNew;
-  user.save()
-    .then(user => {
-      console.log("mdp modifié");
-      res.redirect('/mon-accueil')})
-    .catch(err => next(err))
-    ;
-
+    const hashPassNew = bcrypt.hashSync(req.body.password1, salt);
+    const user = req.user;
+    user.modifPwd = false;
+    user.password = hashPassNew;
+    user.save()
+      .then(user => {
+        console.log("mdp modifié");
+        res.redirect('/mon-accueil')})
+      .catch(err => next(err))
+      ;
   }
 });
 

@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 
 const User = require('../models/famille');
-
+const Cours = require('../models/cours');
 
 
 /* GET home page */
@@ -22,7 +22,7 @@ router.get("/mon-accueil", (req, res) => {
     return;
   }
   
-  if (req.user.modifPwd===true) {
+  if (req.user.modifPwd === true) {
     res.redirect('/modifPwd'); 
     return;
   }
@@ -32,33 +32,39 @@ router.get("/mon-accueil", (req, res) => {
 });
 
 //Profil (private page)
-router.get("/profil", (req, res) => {
+router.get("/profil", (req, res, next) => {
   if (!req.user) {
     res.redirect('/login'); // not logged-in
     return;
   }
 
   // ok, req.user is defined
-  res.render("espacePerso/profil", { user: req.user });
+  
+  Cours.find()
+  .then(cours => {
+    User.findOne({_id : req.user._id})
+      .populate('adherent.cours1')
+      .then(function(user){
+        res.render("espacePerso/profil", {user});
+      })
+      .catch(function (err) { 
+        next(err);
+      })
+  .catch(function (err) {
+      next(err);
+  })
+  });
 });
 
 
-router.get("/edit-profil", (req, res) => {
+router.get("/edit-profil", (req, res, next) => {
   if (!req.user) {
     res.redirect('/login'); // not logged-in
     return;
   }
+
   // ok, req.user is defined
-  // res.render("espacePerso/profil", { user: req.user });
-  User.find({_id : req.user._id})
-  .populate('adherent.cours1')
-  .then(function(user){
-    res.render("espacePerso/edit-profil", {user});
-  }).catch(function (err) {
-    console.error(err);
-    next(err);
-  })
-  
+  res.render("espacePerso/edit-profil", { user: req.user });
 
 });
 
@@ -92,6 +98,4 @@ router.post("/edit-profil", (req, res, next) => {
   });
     
     
-
-
 module.exports = router;

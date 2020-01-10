@@ -93,8 +93,6 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const authRoutes = require('./routes/authentication');
-
-
 app.use('/', authRoutes);
 
 

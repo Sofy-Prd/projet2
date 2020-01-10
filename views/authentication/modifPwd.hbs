@@ -1,17 +1,17 @@
 <form action="/modifPwd" method="POST">
 <h2>Nom : {{user.username}}</h2>
-<p>
+  <p>
     <label for="password1">Nouveau mot de passe: </label>
-      <input type="password" name="password1" >
+    <input type="password" name="password1" >
   </p>
 
   <p>
     <label for="password2">Confirmer votre nouveau mot de passe: </label>
-      <input type="password" name="password2">
+    <input type="password" name="password2">
   </p>
 
- {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
+  {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
   {{/if}}
 
   <button type="submit">ENREGISTRER LE NOUVEAU MOT DE PASSE</button>
