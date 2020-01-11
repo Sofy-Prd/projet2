@@ -1,8 +1,17 @@
 const express = require('express');
 const router  = express.Router();
+const nodemailer  = require('nodemailer');
 
 const User = require('../models/famille');
 const Cours = require('../models/cours');
+
+let transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: process.env.LOGINASSOS,
+    pass: process.env.GMAILSECRET 
+  }
+});
 
 
 /* GET home page */
@@ -14,6 +23,7 @@ router.get('/', function (req, res, next) {
 
   res.render("espacePerso/mon-accueil", { user: req.user });
 });
+
 
 //Routes pour mon-accueil (private page)
 router.get("/mon-accueil", (req, res) => {
@@ -31,6 +41,7 @@ router.get("/mon-accueil", (req, res) => {
   res.render("espacePerso/mon-accueil", { user: req.user });
 });
 
+
 //Profil (private page)
 router.get("/profil", (req, res, next) => {
   if (!req.user) {
@@ -44,6 +55,7 @@ router.get("/profil", (req, res, next) => {
   .then(cours => {
     User.findOne({_id : req.user._id})
       .populate('adherent.cours1')
+      .populate('adherent.cours2')
       .then(function(user){
         res.render("espacePerso/profil", {user});
       })
@@ -86,16 +98,44 @@ router.post("/edit-profil", (req, res, next) => {
     }
   });
 
-  //Absence adherent (private page)
-  router.get("/absence", (req, res) => {
+
+//Absence adherent (private page)
+router.get("/absence", (req, res) => {
     if (!req.user) {
       res.redirect('authentication/login'); // not logged-in
       return;
     }
 
-    // ok, req.user is defined
+  // ok, req.user is defined
   res.render("espacePerso/absence", { user: req.user });
+});
+
+
+router.post("/absence", (req, res, next) => {
+  let email = "sandrine.auberval@gmail.com";
+  let message = req.body.message;
+  let prenom = req.body.prenom;
+  let nom = req.body.nom;
+  let subject = `Absence de ${prenom} ${nom}`;
+
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.LOGINASSOS, 
+      pass: process.env.GMAILSECRET 
+    }
   });
+
+  transporter.sendMail({
+    from: 'associationlestrembles@gmail.com',
+    to: email, 
+    subject: subject, 
+    text: message,
+    html: `<b>${message}</b>`
+  })
+  .then(info => res.redirect("/mon-accueil"))
+  .catch(error => console.log(error));
+});
     
     
 module.exports = router;
