@@ -4,6 +4,10 @@ const nodemailer  = require('nodemailer');
 
 const User = require('../models/famille');
 const Cours = require('../models/cours');
+const Prof = require('../models/prof');
+const templates = require('../templates/template');
+
+// const templateFacture = require('../templates/factureHtml');
 
 let transporter = nodemailer.createTransport({
   service: 'Gmail',
@@ -51,21 +55,39 @@ router.get("/profil", (req, res, next) => {
 
   // ok, req.user is defined
   
-  Cours.find()
-  .then(cours => {
-    User.findOne({_id : req.user._id})
-      .populate('adherent.cours1')
-      .populate('adherent.cours2')
-      .then(function(user){
-        res.render("espacePerso/profil", {user});
-      })
-      .catch(function (err) { 
-        next(err);
-      })
-  .catch(function (err) {
-      next(err);
-  })
-  });
+
+  
+    
+      // User.findOne({_id : req.user._id})
+      //   .populate('adherent.cours1')
+      //   .populate('adherent.cours1.prof')
+      //   // .populate('adherent.cours2')
+      //   .then(function(user){
+      //     res.render("espacePerso/profil", {user});
+      //   })
+      //   .catch(function (err) { 
+      //     next(err);
+      //   })
+    
+      User.findOne({_id : req.user._id})
+        .populate({
+          path: 'adherent.cours1',
+          populate: {
+            path: 'prof'
+          }
+        })
+        .populate({
+          path: 'adherent.cours2',
+          populate: {
+            path: 'prof'
+          }
+        })
+        .then(function(user){
+          res.render("espacePerso/profil", {user});
+        })
+        .catch(function (err) { 
+          next(err);
+        })
 });
 
 
@@ -136,6 +158,43 @@ router.post("/absence", (req, res, next) => {
   .then(info => res.redirect("/mon-accueil"))
   .catch(error => console.log(error));
 });
-    
+  
+
+//Facture adherent (private page)
+router.get("/facture", (req, res) => {
+  if (!req.user) {
+    res.redirect('authentication/login'); // not logged-in
+    return;
+  }
+
+// ok, req.user is defined
+res.render("espacePerso/facture", { user: req.user });
+});
+
+router.post("/facture", (req, res) => {
+  let email = "sandrine.auberval@gmail.com";
+  //let message = req.body.message;
+  let prenom = req.body.prenom;
+  let nom = req.body.nom;
+  let subject = `Facture ${prenom} ${nom}`;
+
+  let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: process.env.LOGINASSOS, 
+      pass: process.env.GMAILSECRET 
+    }
+  });
+
+  transporter.sendMail({
+    from: 'associationlestrembles@gmail.com',
+    to: email, 
+    subject: subject, 
+    text: 'message',
+    html: templates.templateExample(prenom)
+  })
+  .then(info => res.redirect("/mon-accueil"))
+  .catch(error => console.log(error));
+});
     
 module.exports = router;

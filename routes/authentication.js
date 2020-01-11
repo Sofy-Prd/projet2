@@ -64,6 +64,7 @@ router.post("/modifPwd", (req, res, next) => {
   }
 });
 
+//generer envoi email avec nouveau de passe - fonction random()
 
 
 router.get('/logout', (req, res) => {

@@ -35,7 +35,7 @@
 
 <ul>
   {{#each user.adherent}}
-    <li>Adhérent : {{this.prenom}} Cours :{{this.cours1.nom}} || {{this.cours2.nom}}</li> {{!--ajouter photo de la prof --}}
+    <li>Adhérent : {{this.prenom}} Cours :{{this.cours1.nom}} Prof:{{this.cours1.prof.prenom}} || Cours :{{this.cours2.nom}} Prof:{{this.cours2.prof.prenom}}</li> {{!--ajouter photo de la prof --}}
   {{/each}}
 </ul>
 
