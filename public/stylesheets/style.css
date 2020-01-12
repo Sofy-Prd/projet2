@@ -15,28 +15,33 @@ body {
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 
+.midTop {
+  display: flex;
+  justify-content: space-between;
+}
 
-.topBox {
+.topRight {
   display:flex;
   align-items: flex-start;
+  margin-top: 1em;
 }
 
 .lestrembles {
   margin-top:0;
   margin-right:0;
   margin-left:5px;
-  background-color: blue;
+  /* background-color: blue; */
   width:47px;
 }
 
 #connexion {
-  background-color: crimson;
+  /* background-color: crimson; */
   margin-left:auto;
 }
 
 .logoNew{
   width:80px;
-  background-color: chartreuse;
+  /* background-color: chartreuse; */
 }
 
 a {
@@ -79,7 +84,7 @@ font-family: 'Bungee', cursive; */
 
 .titrePage {
   position : absolute;
-  background-color: darkgreen;
+  /* background-color: darkgreen; */
   /* height:100px; width:400px; */
   margin-left:-1em;
   padding-left:0;
@@ -105,6 +110,3 @@ font-family: 'Bungee', cursive; */
   width:100px;
 }
 
-form {
-  margin-top: 200px;
-}
