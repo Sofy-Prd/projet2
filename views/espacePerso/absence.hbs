@@ -3,25 +3,28 @@
       <ul>
         {{#each user.adherent}}
         <li>
-          <a id={{this.prenom}} href="#{{this.prenom}}" >{{this.prenom}}/>
+          <a id="{{this.prenom}}" href="#{{this.prenom}}">{{this.prenom}}</a>
         </li> 
         {{/each}}
       </ul>
 
 
 {{#each user.adherent}}
-  <div class='{{this.prenom}} '></div>
+  <div class="{{this.prenom}}">
     <input type="hidden" name="prenom"  value="{{prenom}}">
     <input type="hidden" name="nom" value="{{nom}}">
 
     <form  action="/send-email" method="post">
       <label for="">Date de l'absence:</label>
-      <input type="date" name="date"  value="new Date()">
+      <input type="date" name="date" value="new Date()" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
       
       <label for="">Motif</label>
       <textarea type="text" name="message" ></textarea>
 
-      <button type="submit">Envoyer {{!-- à {{this.adherent.cours.prof}} --}}</button>   
+      {{!-- <label for="">Cours:</label>
+      <input type="text" name="cours1" value="{{this.cours1.nom}}"> --}}
+
+      <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
     </form>
   </div>
 {{/each}}

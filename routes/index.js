@@ -53,41 +53,26 @@ router.get("/profil", (req, res, next) => {
     return;
   }
 
-  // ok, req.user is defined
-  
-
-  
-    
-      // User.findOne({_id : req.user._id})
-      //   .populate('adherent.cours1')
-      //   .populate('adherent.cours1.prof')
-      //   // .populate('adherent.cours2')
-      //   .then(function(user){
-      //     res.render("espacePerso/profil", {user});
-      //   })
-      //   .catch(function (err) { 
-      //     next(err);
-      //   })
-    
-      User.findOne({_id : req.user._id})
-        .populate({
-          path: 'adherent.cours1',
-          populate: {
-            path: 'prof'
-          }
-        })
-        .populate({
-          path: 'adherent.cours2',
-          populate: {
-            path: 'prof'
-          }
-        })
-        .then(function(user){
-          res.render("espacePerso/profil", {user});
-        })
-        .catch(function (err) { 
-          next(err);
-        })
+  // ok, req.user is defined    
+  User.findOne({_id : req.user._id})
+  .populate({
+    path: 'adherent.cours1',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .populate({
+    path: 'adherent.cours2',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .then(function(user){
+    res.render("espacePerso/profil", {user});
+  })
+  .catch(function (err) { 
+    next(err);
+  });
 });
 
 
@@ -117,8 +102,8 @@ router.post("/edit-profil", (req, res, next) => {
       .then(user => res.redirect("/profil"))
       .catch(err => next(err))
     ;
-    }
-  });
+  }
+});
 
 
 //Absence adherent (private page)
@@ -128,35 +113,55 @@ router.get("/absence", (req, res) => {
       return;
     }
 
-  // ok, req.user is defined
-  res.render("espacePerso/absence", { user: req.user });
+  // ok, req.user is defined    
+  User.findOne({_id : req.user._id})
+  .populate({
+    path: 'adherent.cours1',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .populate({
+    path: 'adherent.cours2',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .then(function(user){
+    res.render("espacePerso/absence", {user});
+  })
+  .catch(function (err) { 
+    next(err);
+  });
 });
 
 
 router.post("/absence", (req, res, next) => {
-  let email = "sandrine.auberval@gmail.com";
-  let message = req.body.message;
-  let prenom = req.body.prenom;
-  let nom = req.body.nom;
-  let subject = `Absence de ${prenom} ${nom}`;
+    let email = "sandrine.auberval@gmail.com";
+    let message = req.body.message;
+    let prenom = req.body.prenom;
+    let nom = req.body.nom;
+    let date = req.body.date;
+    let cours = req.body.cours1;
+    let subject = `Absence de ${prenom} ${nom} le ${date} au cours de ${cours}`;
 
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: process.env.LOGINASSOS, 
-      pass: process.env.GMAILSECRET 
-    }
-  });
+    let transporter = nodemailer.createTransport({  
+      service: 'Gmail',
+      auth: {
+        user: process.env.LOGINASSOS, 
+        pass: process.env.GMAILSECRET 
+      }
+    });
 
-  transporter.sendMail({
-    from: 'associationlestrembles@gmail.com',
-    to: email, 
-    subject: subject, 
-    text: message,
-    html: `<b>${message}</b>`
-  })
-  .then(info => res.redirect("/mon-accueil"))
-  .catch(error => console.log(error));
+    transporter.sendMail({
+      from: 'associationlestrembles@gmail.com',
+      to: email, 
+      subject: subject, 
+      text: message,
+      html: `<b>${message}</b>`
+    })
+    .then(info => res.redirect("/mon-accueil"))
+    .catch(error => console.log(error));
 });
   
 
