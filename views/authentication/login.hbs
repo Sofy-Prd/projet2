@@ -1,6 +1,6 @@
 
-<div class="midTop">
-  <div class="topLeft">
+<div class="page">
+  <div class="Left">
     <div class="logoNew">
         <img src="/images/logoNew.png" alt="nouveau logo">
     </div>
@@ -8,9 +8,38 @@
       <div class="ellipse">
         <img src="/images/ellipse.png" alt="ellipse">
       </div>   
+
       <div class="titrePetit">
         <p>Veuillez entrer votre identifiant et votre mot de passe pour acceder à votre espace personnel</p>
       </div>
+
+      <p>
+        <form action="/login" method="post">
+          <label for="username">Identifiant: </label>
+             <div class="rectangleJaune"></div>
+             <div class="inputForm">
+              <input type="text" name="username">
+            </div>    
+      
+
+    
+        <label for="password">Mot de passe: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm">
+           <input type="password" name="password">
+          </div>
+      </p>
+
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+  <div class="lienOubli">
+    <div class="traitBlanc"></div>
+    <a href="/modifPwd">J'ai oublié mon mot de passe</a>
+  </div>
+
+  <button type="submit">VALIDER</button>
+</form>
     </div>
   </div>
 
@@ -21,6 +50,7 @@
       <div class="lestrembles">
         <img src="/images/lestrembles.svg" alt="lestrembles">
       </div>
+      
   </div>
 </div>
 
@@ -47,22 +77,3 @@
     </div>
   </div> --}}
 
-<form action="/login" method="post">
-  <p>
-    <label for="username">Identifiant: </label>
-    <input type="text" name="username">    
-  </p>
-
-  <p>
-    <label for="password">Mot de passe: </label>
-      <input type="password" name="password">
-  </p>
-
-  {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
-
-  <a href="/modifPwd">J'AI OUBLIE MON MOT DE PASSE</a>
-
-  <button type="submit">VALIDER</button>
-</form>

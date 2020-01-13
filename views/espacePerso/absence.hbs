@@ -3,25 +3,27 @@
       <ul>
         {{#each user.adherent}}
         <li>
-          {{!-- <a href="{{this.prenom}}" >Prénom adhérent:{{this.prenom}}/> --}}
+          <a id={{this.prenom}} href="#{{this.prenom}}" >{{this.prenom}}/>
         </li> 
         {{/each}}
       </ul>
 
 
 {{#each user.adherent}}
-  <input type="hidden" name="prenom" id="" value="{{prenom}}">
-  <input type="hidden" name="nom" id="" value="{{nom}}">
+  <div class='{{this.prenom}} '></div>
+    <input type="hidden" name="prenom"  value="{{prenom}}">
+    <input type="hidden" name="nom" value="{{nom}}">
 
-  <form id="{{this.prenom}}" action="/send-email" method="post">
-    <label for="">Date de l'absence:</label>
-    <input type="date" name="date" id="" value="new Date()">
-    
-    <label for="">Motif</label>
-    <textarea type="text" name="message" id=""></textarea>
+    <form  action="/send-email" method="post">
+      <label for="">Date de l'absence:</label>
+      <input type="date" name="date"  value="new Date()">
+      
+      <label for="">Motif</label>
+      <textarea type="text" name="message" ></textarea>
 
-    <button type="submit">Envoyer {{!-- à {{this.adherent.cours.prof}} --}}</button>   
-  </form>
+      <button type="submit">Envoyer {{!-- à {{this.adherent.cours.prof}} --}}</button>   
+    </form>
+  </div>
 {{/each}}
 </form>
   
