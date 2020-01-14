@@ -1,0 +1,13 @@
+<form action="/oubliPwd" method="POST">
+  <h2>Entrez votre email</h2>
+  <p>
+    <label for="email">Email: </label>
+    <input type="email" name="email" >
+  </p>
+
+   {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+
+  <button type="submit">Recevoir un email de réinitialisation</button>
+</form>

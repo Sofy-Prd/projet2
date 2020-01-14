@@ -76,6 +76,7 @@ router.get("/profil", (req, res, next) => {
 });
 
 
+//Editer profil famille/adherent (private page)
 router.get("/edit-profil", (req, res, next) => {
   if (!req.user) {
     res.redirect('/login'); // not logged-in
@@ -140,10 +141,11 @@ router.post("/absence", (req, res, next) => {
     let email = "sandrine.auberval@gmail.com";
     let message = req.body.message;
     let prenom = req.body.prenom;
+  
     let nom = req.body.nom;
     let date = req.body.date;
-    let cours = req.body.cours1;
-    let subject = `Absence de ${prenom} ${nom} le ${date} au cours de ${cours}`;
+    let subject = `Absence de ${prenom} ${nom} le ${date}`;
+    //console.log(subject);
 
     let transporter = nodemailer.createTransport({  
       service: 'Gmail',
@@ -152,6 +154,7 @@ router.post("/absence", (req, res, next) => {
         pass: process.env.GMAILSECRET 
       }
     });
+
 
     transporter.sendMail({
       from: 'associationlestrembles@gmail.com',

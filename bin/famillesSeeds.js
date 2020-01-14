@@ -57,7 +57,9 @@ var famillesDatas = [
       cours2: 'Afrovibe',
       cours3: '' 
       }
-    ]
+    ],
+    resetPasswordToken: '',
+    resetPasswordExpires: ''
   },
     
   {
@@ -81,7 +83,9 @@ var famillesDatas = [
       cours2: '',
       cours3: ''      
       }
-    ]
+    ],
+    resetPasswordToken: '',
+    resetPasswordExpires: ''
   },
     
   { 
@@ -123,7 +127,9 @@ var famillesDatas = [
       cours2: '',
       cours3: '' 
       }
-    ]
+    ],
+    resetPasswordToken: '',
+    resetPasswordExpires: ''
   },
     
   {
@@ -147,7 +153,9 @@ var famillesDatas = [
       cours2: '',
       cours3: '' 
       }
-    ]
+    ],
+    resetPasswordToken: '',
+    resetPasswordExpires: ''
   },
 
   { 
@@ -180,7 +188,9 @@ var famillesDatas = [
       cours2: '',
       cours3: '' 
       }
-    ]
+    ],
+    resetPasswordToken: '',
+    resetPasswordExpires: ''
   }
 ];
   

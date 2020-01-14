@@ -23,7 +23,9 @@ const FamilleSchema = new Schema({
       cours2: {type: Schema.Types.ObjectId, ref: 'Cours'},
       cours3: {type: Schema.Types.ObjectId, ref: 'Cours'}
     }
-  ]
+  ],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 }, {
   timestamps: true
 });
