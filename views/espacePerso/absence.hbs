@@ -15,7 +15,7 @@
       </div>
 
       <div class="absenceForm">
-      <form action="/absence" method="post">
+     
           {{!-- <h1>Prévenir de l'absence de :</h1>
             <ul>
               {{#each user.adherent}}
@@ -27,6 +27,7 @@
 
 
       {{#each user.adherent}}
+       <form action="/absence" method="post">
         <div class="{{this.prenom}}">
           {{!-- <input type="hidden" name="prenom"  value="{{prenom}}">
           <input type="hidden" name="nom" value="{{nom}}"> --}}
@@ -47,8 +48,9 @@
             <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
           </form>
         </div>
+            </form>
       {{/each}}
-      </form>
+  
         
       
       </div>

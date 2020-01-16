@@ -4,9 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-// let prenomAdherent = prenom;
+let user= document.querySelector(".lienPrenom").value;;
 
-// document.getElementById("prenomAdherent").onclick = function() {
-//   document.querySelector(".prenomAdherent").classList.remove("dontDisplay");
-// };
+let adherenttab = user.adherent;
+
+adherenttab.forEach(function(adherent){
+  let prenomAdherent = adherent.prenom;
+  document.getElementById("prenomAdherent").onclick = function() {
+  document.querySelector("#prenomAdherent").classList.remove("dontDisplay");
+  };
+})
+
+
 
