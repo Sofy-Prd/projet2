@@ -1,13 +1,45 @@
-<form action="/oubliPwd" method="POST">
-  <h2>Entrez votre email</h2>
-  <p>
-    <label for="email">Email: </label>
-    <input type="email" name="email" >
-  </p>
 
-   {{#if errorMessage}}
-    <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
+<div class="page">
+  <div class="Left">
+    <div class="logoNew">
+      <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+       <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
+      <div class="titreMoyen">
+        <p>Mon profil</p>
+      </div>
+    </div>
 
-  <button type="submit">Recevoir un email de réinitialisation</button>
-</form>
+    <div class="modifPwdForm">
+      <form action="/oubliPwd" method="POST">
+        <p>
+          <label for="email">Votre Email: </label>
+           <div class="rectangleJaune">
+           </div>
+           <div class="inputForm">
+             <input type="email" name="email" >
+           </div>
+        </p>
+
+      {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+      {{/if}}
+
+        <button type="submit">Recevoir un email de réinitialisation</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="topRight">
+    <div id="modifPwdText">
+      <img src="/images/oubliPwdText.svg" alt="mmodif mdp">
+    </div>
+    <div class="lestrembles">
+     <img src="/images/lestrembles.svg" alt="lestrembles">
+    </div>
+  </div>
+
+</div>

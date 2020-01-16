@@ -1,49 +1,80 @@
-<h1>MODIFIER MON PROFIL</h1>
+<div class="page">
+  <div class="Left">
+    <div class="logoNew">
+      <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+        <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
 
-<form action="/edit-profil" method="POST">
-  <p>
-    Identifiant/Pseudo: {{user.username}}    
-  </p>
+      <div class="titreMoyenPetit">
+        <p>Modification de vos informations personnelles</p>
+      </div>
+    </div>
+      <div class="editProfilForm">
+        <form action="/edit-profil" method="POST">
+                
+          <label for="email">Adresse mail: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+            <input type="text" name="email" value="{{user.email}}">  
+          </div>
+        
 
-  <p>
-    <label for="email">Adresse mail: </label>
-    <input type="text" name="email" value="{{user.email}}">    
-  </p>
+          
+          <label for="rue">Rue: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+            <input type="text" name="rue" value="{{user.rue}}">   
+          </div>   
+      
 
-  <p>
-    <label for="rue">Rue: </label>
-    <input type="text" name="rue" value="{{user.rue}}">    
-  </p>
+          <label for="codePostal">Code Postal: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+            <input type="text" name="codePostal" value="{{user.codePostal}}">  
+          </div>  
+      
+          <label for="ville">Ville: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+            <input type="text" name="ville" value="{{user.ville}}">
+          </div>  
+      
+        
+          <label for="telephone1">Téléphone 1: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+            <input type="text" name="telephone1" value="{{user.telephone1}}">    
+          </div>
 
-  <p>
-    <label for="codePostal">Code Postal: </label>
-    <input type="text" name="codePostal" value="{{user.codePostal}}">    
-  </p>
+        
+          <label for="telephone2">Téléphone 2: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm2">
+          <input type="text" name="telephone2" value="{{user.telephone2}}">  
+          </div>  
+          
 
-  <p>
-    <label for="ville">Ville: </label>
-    <input type="text" name="ville" value="{{user.ville}}">    
-  </p>
+          <button>ENREGISTRER LES MODIFICATIONS</button>
 
-  <p>
-    <label for="telephone1">Téléphone 1: </label>
-    <input type="text" name="telephone1" value="{{user.telephone1}}">    
-  </p>
-
-  <p>
-    <label for="telephone2">Téléphone 2: </label>
-    <input type="text" name="telephone2" value="{{user.telephone2}}">    
-  </p>
-
-  <p>
-    <label for="telephone3">Téléphone 3: </label>
-    <input type="text" name="telephone3" value="{{user.telephone3}}">    
-  </p>
-
+        </form>
+      </div>
+    </div>
   
-  <button>ENREGISTRER LES MODIFICATIONS</button>
+    <div class="topRight">
+      <div id="connexion">
+        <img src="/images/editProfilText.svg" alt="connexion">
+      </div>
+      <div class="lestrembles">
+        <img src="/images/lestrembles.svg" alt="lestrembles">
+      </div>
+    </div>
+        
+  </div>
 
-</form>
+  </div>
 
 
 

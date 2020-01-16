@@ -1,11 +1,124 @@
-<div id="accueil-box">
-  <h1>Votre Page d'Accueil</h1>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+<div class="page">
+  <div class="Left">
+    <div class="logoNew">
+        <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+        <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
 
-  <a href="/profil">MON PROFIL</a>
-  <a href="/absence">ABSENCES</a>
-  <a href="/facture">FACTURE</a>
+      <div class="titreMoyen">
+          <p>Mon espace personnel</p>
+        </div>
 
-  <a href="/logout">QUITTER MON ESPACE</a>
+      <p>
+        <div class="liensAccueil">
+          <div class="lienJaune">
+            <img src="/images/menuButton.png" alt="menu bouton">
+            <img id="logoImg" src="/images/profile.svg" alt="logoProfil">
+            <a class="textLien" href="/profil">Consulter mon profil</a>
+          </div>
 
+           <div class="lienJaune">
+              <img src="/images/menuButton.png" alt="menu bouton">
+            <img id="logoImg" src="/images/absence.svg" alt="logoAbsence">
+            <a class="textLien" href="/absence">Prévenir d'une absence</a>
+            </div>
+          
+          <div class="lienJaune">
+            <img src="/images/menuButton.png" alt="menu bouton">
+            <img id="logoImg" src="/images/facture.svg" alt="logofacture">
+          <a class="textLien" href="/facture">Facture par mail</a>
+          </div>
+
+
+         
+
+        <div class="logout">
+          <a href="/logout">me deconnecter</a>
+      
+        </div>
+        </div>
+      </p>
+
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+
+    </div>
+  </div>
+
+  <div class="topRight">
+      <div id="connexion">
+        <img src="/images/monEspace.svg" alt="mon espace">
+      </div>
+      <div class="lestrembles">
+        <img src="/images/lestrembles.svg" alt="lestrembles">
+      </div>
+      
+  </div>
 </div>
+
+
+  
+  
+  
+  
+  
+  
+  
+{{!--   
+  
+  
+  
+  <div class="page">
+    <div class="Left">
+      <div class="logoNew">
+          <img src="/images/logoNew.png" alt="nouveau logo">
+      </div>
+      <div class="titrePage">
+        <div class="ellipse">
+          <img src="/images/ellipse.png" alt="ellipse">
+       </div>   
+
+        <div class="titreMoyen">
+          <p>Mon espace personnel</p>
+        </div>
+
+        <div class="liensRubriques">
+          <a href="/profil">MON PROFIL</a>
+          <a href="/absence">ABSENCES</a>
+          <a href="/facture">FACTURE</a>
+          <a href="/logout">QUITTER MON ESPACE</a>
+
+        </div>
+    </div>
+
+    <div class="topRight">
+        <div id="monEspace">
+          <img src="/images/monEspace.svg" alt="connexion">
+        </div>
+        <div class="lestrembles">
+          <img src="/images/lestrembles.svg" alt="lestrembles">
+        </div>
+      </div>
+   
+  </div>
+   --}}
+
+  
+
+
 

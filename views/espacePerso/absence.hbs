@@ -1,37 +1,78 @@
-<form action="/absence" method="post">
-    <h1>Prévenir de l'absence de :</h1>
-      <ul>
-        {{#each user.adherent}}
-        <li>
-          <a id="{{this.prenom}}" href="#{{this.prenom}}">{{this.prenom}}</a>
-        </li> 
-        {{/each}}
-      </ul>
+<div class="page">
+
+  <div class="Left">
+      <div class="logoNew">
+          <img src="/images/logoNew.png" alt="nouveau logo">
+      </div>
+      <div class="titrePage">
+        <div class="ellipse">
+          <img src="/images/ellipse.png" alt="ellipse">
+        </div>   
+
+        <div class="titreMoyenAbsence">
+            <p>Prévenir d'une absence</p>
+        </div>
+      </div>
+
+      <div class="absenceForm">
+      <form action="/absence" method="post">
+          {{!-- <h1>Prévenir de l'absence de :</h1>
+            <ul>
+              {{#each user.adherent}}
+              <li>
+                <a id="{{this.prenom}}" href="#{{this.prenom}}">{{this.prenom}}</a>
+              </li> 
+              {{/each}}
+            </ul> --}}
 
 
-{{#each user.adherent}}
-  <div class="{{this.prenom}}">
-    {{!-- <input type="hidden" name="prenom"  value="{{prenom}}">
-    <input type="hidden" name="nom" value="{{nom}}"> --}}
-
-    <form  action="/send-email" method="post">
-    <input type="hidden" name="prenom"  value="{{prenom}}">
-    <input type="hidden" name="nom" value="{{nom}}">
-
-      <label for="">Date de l'absence:</label>
-      <input type="date" name="date" value="new Date()">
+      {{#each user.adherent}}
+        <div class="{{this.prenom}}">
+          {{!-- <input type="hidden" name="prenom"  value="{{prenom}}">
+          <input type="hidden" name="nom" value="{{nom}}"> --}}
       
-      <label for="">Motif</label>
-      <textarea type="text" name="message" ></textarea>
+          <form  action="/send-email" method="post">
+          <input type="hidden" name="prenom"  value="{{prenom}}">
+          <input type="hidden" name="nom" value="{{nom}}">
 
-      {{!-- <label for="">Cours:</label>
-      <input type="text" name="cours1" value="{{this.cours1.nom}}"> --}}
+            <label for=""><span>{{this.prenom}}</span> sera absente le :</label>
+            <input type="date" name="date" value="new Date()">
+            
+            <label for="">Motif</label>
+            <textarea type="text" name="message" ></textarea>
 
-      <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
-    </form>
+            {{!-- <label for="">Cours:</label>
+            <input type="text" name="cours1" value="{{this.cours1.nom}}"> --}}
+
+            <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
+          </form>
+        </div>
+      {{/each}}
+      </form>
+        
+      
+      </div>
+       
+
+      
+
+   
+</div>
+
+   <div class="topRight">
+    <div id="absenceRight">
+      <img src="/images/absenceText.svg" alt="absence">
+    </div>
+    <div class="lestrembles">
+      <img src="/images/lestrembles.svg" alt="lestrembles">
+    </div>
+      
   </div>
-{{/each}}
-</form>
+
   
-  <a href="/mon-accueil">ACCUEIL</a>
-  <a href="/logout">QUITTER MON ESPACE</a>
+  </div>
+
+    <div class="boutonAbsence">
+        <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>
+    </div> 
+

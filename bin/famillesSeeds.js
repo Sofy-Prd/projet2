@@ -22,7 +22,7 @@ var famillesDatas = [
     username: 'FERREIRA',
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
-    nom: 'DA SILVA',
+    nom: 'FERREIRA',
     rue: '42 av des Pyrenées',
     codePostal: '77270',
     ville: 'Villeparisis',

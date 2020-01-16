@@ -75,6 +75,34 @@ router.get("/profil", (req, res, next) => {
   });
 });
 
+router.get("/adherents", (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login'); // not logged-in
+    return;
+  }
+
+  // ok, req.user is defined    
+  User.findOne({_id : req.user._id})
+  .populate({
+    path: 'adherent.cours1',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .populate({
+    path: 'adherent.cours2',
+    populate: {
+      path: 'prof'
+    }
+  })
+  .then(function(user){
+    res.render("espacePerso/adherents", {user});
+  })
+  .catch(function (err) { 
+    next(err);
+  });
+});
+
 
 //Editer profil famille/adherent (private page)
 router.get("/edit-profil", (req, res, next) => {

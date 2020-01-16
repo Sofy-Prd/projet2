@@ -2,7 +2,7 @@
 <div class="page">
   <div class="Left">
     <div class="logoNew">
-        <img src="/images/logoNew.png" alt="nouveau logo">
+      <img src="/images/logoNew.png" alt="nouveau logo">
     </div>
     <div class="titrePage">
       <div class="ellipse">
@@ -13,33 +13,31 @@
         <p>Veuillez entrer votre identifiant et votre mot de passe pour acceder à votre espace personnel</p>
       </div>
 
-      <p>
-        <form action="/login" method="post">
-          <label for="username">Identifiant: </label>
-             <div class="rectangleJaune"></div>
-             <div class="inputForm">
-              <input type="text" name="username">
-            </div>    
-      
-
+      <form action="/login" method="post">
+        <label for="username">Identifiant: </label>
+            <div class="rectangleJaune"></div>
+            <div class="inputForm">
+            <input type="text" name="username">
+          </div>    
     
+
         <label for="password">Mot de passe: </label>
           <div class="rectangleJaune"></div>
           <div class="inputForm">
-           <input type="password" name="password">
+            <input type="password" name="password">
           </div>
-      </p>
+    
 
   {{#if errorMessage}}
   <div class="error-message">{{errorMessage}}</div>
   {{/if}}
-  <div class="lienOubli">
-    <div class="traitBlanc"></div>
-    <a href="/oubliPwd">J'ai oublié mon mot de passe</a>
-  </div>
+        <div class="lienOubli">
+          <div class="traitBlanc"></div>
+          <a href="/oubliPwd">J'ai oublié mon mot de passe</a>
+        </div>
 
-  <button type="submit">VALIDER</button>
-</form>
+        <button type="submit">VALIDER</button>
+      </form>
     </div>
   </div>
 
@@ -53,27 +51,4 @@
       
   </div>
 </div>
-
-{{!-- 
-
-  <div class="topBox">
-    <div class="logoNew">
-      <img src="/images/logoNew.png" alt="nouveau logo">
-    </div>
-    <div id="connexion">
-      <img src="/images/connexion.svg" alt="connexion">
-    </div>
-    <div class="lestrembles">
-      <img src="/images/lestrembles.svg" alt="lestrembles">
-    </div>
-  </div>
-
-  <div class="titrePage">
-    <div class="ellipse">
-      <img src="/images/ellipse.png" alt="ellipse">
-    </div>   
-    <div class="titrePetit">
-      <p>Veuillez entrer votre identifiant et votre mot de passe pour acceder à votre espace personnel</p>
-    </div>
-  </div> --}}
 
