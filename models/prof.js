@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const ProfSchema = new Schema({
   prenom: String,
+  email: String, 
   photo: String
-  //ajouter email prof
 });
 
 const Prof = mongoose.model('Prof', ProfSchema);

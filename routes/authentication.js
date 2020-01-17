@@ -15,7 +15,6 @@ router.get('/login', (req, res) => {
   res.render('authentication/login', { message: req.flash('error')});
 });
 
-
 router.post('/login', passport.authenticate('local', {
   successRedirect : '/mon-accueil',
   failureRedirect : '/login',
@@ -23,11 +22,11 @@ router.post('/login', passport.authenticate('local', {
   }
 ));
 
-//Routes pour reinitialiser le mot de passe
+
+//Routes pour réinitialiser le mot de passe à la 1ère connexion
 router.get('/modifPwd', (req, res) => {
   res.render('authentication/modifPwd', { user: req.user });
 });
-
 
 router.post("/modifPwd", (req, res, next) => { 
     
@@ -67,7 +66,7 @@ router.post("/modifPwd", (req, res, next) => {
   }
 });
 
-//generer envoi email avec nouveau de passe - fonction random()
+//Génerer envoi email avec token pour mdp oublié
 router.get('/oubliPwd', (req, res) => {
   res.render('authentication/oubliPwd', { user: req.user });
 });
@@ -98,23 +97,23 @@ router.post('/oubliPwd', (req, res, next) => {
     },
     function(token, user, done) {
       var smtpTransport = nodemailer.createTransport({
-        service: 'Gmail', // se puede usar cualquier otro servicio soportado por nodemailer, see nodemailer support mail SMTP
+        service: 'Gmail', 
         auth: {
-          user: process.env.LOGINASSOS, //email from
-          pass: process.env.GMAILSECRET //password 
+          user: process.env.LOGINASSOS, //email from 
+          pass: process.env.GMAILSECRET //password
         }
       });
       var mailOptions = {
         to: user.email,
         from: 'les Trembles',
-        subject: 'Node.js Password Reset',
-        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
-          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+        subject: 'Réinitialiser votre Mot de Passe',
+        text: 'Vous recevez cet email parce que vous avez demandé la réinitialisation du mot de passe de votre compte.\n\n' +
+          'Veuillez cliquer sur le lien suivant ou le coller dans votre navigateur pour terminer le processus :\n\n' +
           'http://' + req.headers.host + '/modifPwdBis/' + token + '\n\n' +
-          'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+          'Si cette demande ne vient pas de vous, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+        req.flash('info', 'Un email contenant des informations supplémentaires a été envoyé à : ' + user.email );
         done(err, 'done');
       });
     }
@@ -126,19 +125,14 @@ router.post('/oubliPwd', (req, res, next) => {
 });
 
 
-// 'Réinitialisation de votre Mot de Passe',
-      //   text: 'Vous recevez cet email parce que vous ou quelqu\'un d\'autre avez demandé la réinitialisation du mot de passe de votre compte\. Veuillez cliquer sur le lien suivant ou le coller dans votre navigateur pour terminer le processus :\n+\.
-      //     http://' + req.headers.host + '/reset/' + token + '\n\n' +
-      //     'Si vous ne l\'avez pas demandé, veuillez ignorer cet e-mail et votre mot de passe restera inchangé.\n'
-
-
+//Logout
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 });
 
 
-
+//Modifier mdp oublié grâce à un lien contenant le token
 router.get('/modifPwdBis/:token', function(req, res) {
   User.findOne({ resetPasswordToken: req.params.token }, function(err, user) {
     if (!user) {
@@ -151,7 +145,6 @@ router.get('/modifPwdBis/:token', function(req, res) {
     });
   });
 });
-
 
 router.post("/modifPwdBis/:token", (req, res, next) => { 
   const password1 = req.body.password1;
@@ -175,21 +168,20 @@ router.post("/modifPwdBis/:token", (req, res, next) => {
   async.waterfall([
 
     User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
-        if (!user) {
-          req.flash('error', 'Password reset token is invalid or has expired.');
-          return res.redirect('/login');
-        }
+      if (!user) {
+        req.flash('error', 'Le token pour mettre à jour votre mot de passe est invalide ou a expiré.');
+        return res.redirect('/login');
+      }
 
-        user.password = hashPassNew;
-        user.resetPasswordToken = undefined;
-        user.resetPasswordExpires = undefined;
+      user.password = hashPassNew;
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpires = undefined;
 
-        user.save()
+      user.save()
         .then(user => {
         console.log("mdp modifié");
         res.redirect('/login')})
-        .catch(err => next(err));
-
+      .catch(err => next(err));
     })
   ]);
 });
