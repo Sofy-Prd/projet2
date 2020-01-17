@@ -1,23 +1,67 @@
-<form action="/facture" method="post">
-    <h1>Recevoir par email la facture pour:</h1>
-      <ul>
+<div class="page">
+
+  <div class="Left">
+    <div class="logoNew">
+        <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+        <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
+
+      <div class="titreMoyenAbsence">
+          <p>Recevoir une facture</p>
+      </div>
+    </div>
+
+    <div class="factureForm">
+      {{!-- <ul>
         {{#each user.adherent}}
-        <li> 
-          <a href="{{this.prenom}}" >Prénom adhérent:{{this.prenom}}/>
-        </li> 
+        <form action="/facture" method="post">
+          <li> 
+            <a href="{{this.prenom}}" >Prénom adhérent:{{this.prenom}}/>
+          </li> 
         {{/each}}
-      </ul>
+      </ul> --}}
 
 
-{{#each user.adherent}}
-  <input type="hidden" name="prenom" id="" value="{{prenom}}">
-  <input type="hidden" name="nom" id="" value="{{nom}}">
+        {{#each user.adherent}}
+          <input type="hidden" name="prenom" id="" value="{{prenom}}">
+          <input type="hidden" name="nom" id="" value="{{nom}}">
 
-  <form id="{{this.prenom}}" action="/send-email" method="post">
-    <p>
-        Prénom de l'adhérent: {{this.prenom}}
-        <button>Envoyer email</button>
-    <p>  
-  </form>
-{{/each}}
-</form>
+          <form id="{{this.prenom}}" action="/send-email" method="post">
+          <p>
+            pour: <span>{{this.prenom}}</span>
+            <button>Envoyer email</button>
+          <p>  
+          </form>
+       </form>
+     
+    {{/each}}
+  </div>
+   </div>
+       
+
+      
+
+   <div class="topRight">
+    <div id="absenceRight">
+      <img src="/images/factureText.svg" alt="absence">
+    </div>
+    <div class="lestrembles">
+      <img src="/images/lestrembles.svg" alt="lestrembles">
+    </div>
+      
+  </div>
+
+   
+</div>
+
+  
+  </div>
+
+    <div class="boutonAbsence">
+        <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>
+    </div> 
+
+

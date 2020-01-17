@@ -5,6 +5,7 @@ const nodemailer  = require('nodemailer');
 const User = require('../models/famille');
 const Cours = require('../models/cours');
 const Prof = require('../models/prof');
+const Lieu = require('../models/lieu');
 const templates = require('../templates/template');
 
 // const templateFacture = require('../templates/factureHtml');
@@ -90,9 +91,21 @@ router.get("/adherents", (req, res, next) => {
     }
   })
   .populate({
+    path: 'adherent.cours1',
+    populate: {
+      path: 'lieu'
+    }
+  })
+  .populate({
     path: 'adherent.cours2',
     populate: {
       path: 'prof'
+    }
+  })
+  .populate({
+    path: 'adherent.cours2',
+    populate: {
+      path: 'lieu'
     }
   })
   .then(function(user){
@@ -166,14 +179,13 @@ router.get("/absence", (req, res) => {
 
 
 router.post("/absence", (req, res, next) => {
-    let email = "sandrine.auberval@gmail.com";
+    let email = req.body.profEmail;
     let message = req.body.message;
     let prenom = req.body.prenom;
   
     let nom = req.body.nom;
     let date = req.body.date;
     let subject = `Absence de ${prenom} ${nom} le ${date}`;
-    //console.log(subject);
 
     let transporter = nodemailer.createTransport({  
       service: 'Gmail',

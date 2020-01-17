@@ -33,7 +33,7 @@
           <input type="hidden" name="nom" value="{{nom}}"> --}}
       
           <form  action="/send-email" method="post">
-          <input type="hidden" name="prenom"  value="{{prenom}}">
+          <input type="hidden" name="prenom"  value="{{this.prenom}}">
           <input type="hidden" name="nom" value="{{nom}}">
 
             <label for=""><span>{{this.prenom}}</span> sera absente le :</label>
@@ -44,6 +44,8 @@
 
             {{!-- <label for="">Cours:</label>
             <input type="text" name="cours1" value="{{this.cours1.nom}}"> --}}
+
+            <input type="hidden" name="profEmail" value="{{this.cours1.prof.email}}">
 
             <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
           </form>

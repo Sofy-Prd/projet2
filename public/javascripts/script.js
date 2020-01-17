@@ -4,16 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-let user= document.querySelector(".lienPrenom").value;;
+// let user= document.querySelector(".lienPrenom").value;;
 
-let adherenttab = user.adherent;
+// let adherenttab = user.adherent;
 
-adherenttab.forEach(function(adherent){
-  let prenomAdherent = adherent.prenom;
-  document.getElementById("prenomAdherent").onclick = function() {
-  document.querySelector("#prenomAdherent").classList.remove("dontDisplay");
-  };
-})
+// adherenttab.forEach(function(adherent){
+//   let prenomAdherent = adherent.prenom;
+//   document.getElementById("prenomAdherent").onclick = function() {
+//   document.querySelector("#prenomAdherent").classList.remove("dontDisplay");
+//   };
+// })
 
 
 

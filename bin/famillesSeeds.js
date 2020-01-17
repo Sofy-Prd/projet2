@@ -10,7 +10,7 @@ const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 
 
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect("mongodb://localhost/espaceFamille", {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
   .then(() => {
     console.log('🔌 Connected to Mongo!');
   })
@@ -19,75 +19,31 @@ mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useCreateIndex
 
 var famillesDatas = [
   { 
-    username: 'FERREIRA',
+    username: 'MARTIN',
     password: bcrypt.hashSync('Password', salt),
     modifPwd: true,
-    nom: 'FERREIRA',
+    nom: 'MARTIN',
     rue: '42 av des Pyrenées',
     codePostal: '77270',
     ville: 'Villeparisis',
     telephone1: '0605040302',
     telephone2:'0615243342',     
-    email: 'sophie.pirodon@gmail.com',
+    email: 'sofy93.prd@gmail.com',
     adherent: [
-      {
-      prenom: 'ELINE', 
-      nom: 'FERREIRA', 
-      dateNaissance: 2011-12-14, 
-      photoAdherent: '',
-      cours1: '2e niveau A',
-      cours2: '',
-      cours3: ''
-      },
-      {
+           {
       prenom: 'LEANNE', 
-      nom: 'FERREIRA',
+      nom: 'MARTIN',
       dateNaissance: 2008-09-30, 
       photoAdherent:'',
       cours1: '3e niveau',
       cours2: '',
       cours3: ''
-      },
-      {
-      prenom: 'EMILIE', 
-      nom: 'FERREIRA', 
-      dateNaissance: 1980-04-15, 
-      photoAdherent:'',
-      cours1: 'Adultes',
-      cours2: 'Afrovibe',
-      cours3: '' 
       }
     ],
     resetPasswordToken: '',
     resetPasswordExpires: ''
   },
-    
-  {
-    username: 'MARTIN',
-    password: bcrypt.hashSync('Password', salt),
-    modifPwd: true,
-    nom: 'MARTIN',
-    rue: '12 RUE ISAAC NEWTON',
-    codePostal: '93290',
-    ville: 'Tremblay en France',
-    telephone1: '0605040306',
-    telephone2:'0615243346',
-    email: 'sophie.pirodon@gmail.com',
-    adherent: [
-      {
-      prenom: 'CAMILLE', 
-      nom: 'MARTIN', 
-      dateNaissance: 2015-03-13,
-      photoAdherent:'',
-      cours1: 'Eveil',
-      cours2: '',
-      cours3: ''      
-      }
-    ],
-    resetPasswordToken: '',
-    resetPasswordExpires: ''
-  },
-    
+      
   { 
     username: 'DUPOND',
     password: bcrypt.hashSync('Password', salt),
@@ -117,76 +73,6 @@ var famillesDatas = [
       cours1: 'Afrovibe',
       cours2: '',
       cours3: ''
-      },
-      {
-      prenom: 'Celine', 
-      nom: 'DUPOND', 
-      dateNaissance: 1970-11-20, 
-      photoAdherent:'',
-      cours1: 'Afrovibe',
-      cours2: '',
-      cours3: '' 
-      }
-    ],
-    resetPasswordToken: '',
-    resetPasswordExpires: ''
-  },
-    
-  {
-    username: 'JAOUANI',
-    password: bcrypt.hashSync('Password', salt),
-    modifPwd: true,
-    nom: 'JAOUANI',
-    rue: '52 ALLEE JOHANNES KEPLER',
-    codePostal: '93290',
-    ville: 'Tremblay en France',
-    telephone1: '0605040310',
-    telephone2: '0615243350',
-    email: 'sophie.pirodon@gmail.com',
-    adherent: [
-      {
-      prenom: 'ALEXIA', 
-      nom: 'JAOUANI', 
-      dateNaissance: 2003-01-22, 
-      photoAdherent:'',
-      cours1: 'Ados',
-      cours2: '',
-      cours3: '' 
-      }
-    ],
-    resetPasswordToken: '',
-    resetPasswordExpires: ''
-  },
-
-  { 
-    username: 'SUNDI',
-    password: bcrypt.hashSync('Password', salt),
-    modifPwd: true,
-    nom: 'SUNDI',
-    rue: '25 av du Pré Gobelin',
-    codePostal: '93290',
-    ville: 'Tremblay en France',
-    telephone1: '0605040311',
-    telephone2: '0615243351',
-    email: 'sophie.pirodon@gmail.com',
-    adherent: [
-      {
-      prenom: 'LANA',
-      nom: 'SUNDI',
-      dateNaissance: 2010-09-28,
-      photoAdherent: '',
-      cours1: '2e niveau A',
-      cours2: '',
-      cours3: '' 
-      },
-      {
-      prenom: 'LYA', 
-      nom: 'SUNDI', 
-      dateNaissance: 2014-01-19,
-      photoAdherent: '', 
-      cours1: '1er niveau',
-      cours2: '',
-      cours3: '' 
       }
     ],
     resetPasswordToken: '',
