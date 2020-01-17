@@ -1,5 +1,5 @@
 module.exports = {
-  templateExample: (prenom) => { return `<!doctype html>
+  templateExample: (prenom, nom, tarif, date) => { return `<!doctype html>
   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
       <title>
@@ -109,14 +109,14 @@ module.exports = {
     ><h1>Association les Trembles</h1>
         <img src="http://localhost:3001/images/logo.png" alt="logo"/>
         <h2>ATTESTATION</h2>
-        <p style="text-align:justify">Je soussignée, Sophie PIRODON, Présidente adjointe de l’Association Les Trembles dont le siège social est sis 6 Avenue Kalifat à Tremblay en France (93290) agissant au nom de Madame Karol WATY, Présidente en exercice, certifie que ${prenom} [[nom]] est adhérente de notre ACTIVITE MODERN JAZZ pour la saison 2019/2020 dont la cotisation annuelle est de :  </p>
-        <h2>[[tarif]]€</h2>
+        <p style="text-align:justify">Je soussignée, Sophie PIRODON, Présidente adjointe de l’Association Les Trembles dont le siège social est sis 6 Avenue Kalifat à Tremblay en France (93290) agissant au nom de Madame Karol WATY, Présidente en exercice, certifie que ${prenom} ${nom} est adhérente de notre ACTIVITE MODERN JAZZ pour la saison 2019/2020 dont la cotisation annuelle est de :  </p>
+        <h2>${tarif}€</h2>
         
         <p style="text-align:justify">Règlement effectué par chèque à l’ordre de notre association, compte SG 37271406, agence de Tremblay Bizet.</p>
         
         <p style="text-align:justify">La présente attestation est établie ce jour, à la demande de l’intéressée pour valoir ce que de droit.</p>
         
-        <p style="text-align:right">Tremblay en France, le [[date]]</p>
+        <p style="text-align:right">Tremblay en France, le ${date}</p>
         
         <img src="http://localhost:3001/public/images/signature.png" alt="signature5" style="text-align:right, padding-right:1Opx" /></div>
   

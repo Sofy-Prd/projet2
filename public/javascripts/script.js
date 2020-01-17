@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 }, false);
 
-let user= document.querySelector(".lienPrenom").value;;
+let user= document.querySelector(".lienPrenom").value;
 
 let adherenttab = user.adherent;
 

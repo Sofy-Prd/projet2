@@ -6,6 +6,7 @@ const User = require('../models/famille');
 const Cours = require('../models/cours');
 const Prof = require('../models/prof');
 const Lieu = require('../models/lieu');
+const Tarif = require('../models/tarif');
 const templates = require('../templates/template');
 
 // const templateFacture = require('../templates/factureHtml');
@@ -195,7 +196,6 @@ router.post("/absence", (req, res, next) => {
       }
     });
 
-
     transporter.sendMail({
       from: 'associationlestrembles@gmail.com',
       to: email, 
@@ -216,15 +216,37 @@ router.get("/facture", (req, res) => {
   }
 
 // ok, req.user is defined
-res.render("espacePerso/facture", { user: req.user });
+// res.render("espacePerso/facture", { user: req.user });
+  User.findOne({_id : req.user._id})
+  .populate({
+    path: 'adherent.cours1',
+    populate: {
+      path: 'duree'
+    }
+  })
+  .populate({
+    path: 'adherent.cours2',
+    populate: {
+      path: 'duree'
+    }
+  })
+  .then(function(user){
+    res.render("espacePerso/facture", {user});
+  })
+  .catch(function (err) { 
+    next(err);
+  });
 });
 
 router.post("/facture", (req, res) => {
-  let email = "sandrine.auberval@gmail.com";
-  //let message = req.body.message;
+  let email = req.user.email;
   let prenom = req.body.prenom;
   let nom = req.body.nom;
+  let tarif = req.body.tarif;
+  let date = req.body.date;
   let subject = `Facture ${prenom} ${nom}`;
+
+  console.log(date);
 
   let transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -236,10 +258,10 @@ router.post("/facture", (req, res) => {
 
   transporter.sendMail({
     from: 'associationlestrembles@gmail.com',
-    to: email, 
-    subject: subject, 
+    to: email, //email user
+    subject: subject,  
     text: 'message',
-    html: templates.templateExample(prenom)
+    html: templates.templateExample(prenom, nom, tarif, date)
   })
   .then(info => res.redirect("/mon-accueil"))
   .catch(error => console.log(error));

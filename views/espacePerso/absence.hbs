@@ -29,16 +29,14 @@
       {{#each user.adherent}}
        <form action="/absence" method="post">
         <div class="{{this.prenom}}">
-          {{!-- <input type="hidden" name="prenom"  value="{{prenom}}">
-          <input type="hidden" name="nom" value="{{nom}}"> --}}
       
-          <form  action="/send-email" method="post">
-          <input type="hidden" name="prenom"  value="{{this.prenom}}">
-          <input type="hidden" name="nom" value="{{nom}}">
+          <form action="/send-email" method="post">
+            <input type="hidden" name="prenom"  value="{{this.prenom}}">
+            <input type="hidden" name="nom" value="{{nom}}">
 
-            <label for=""><span>{{this.prenom}}</span> sera absente le :</label>
-            <input type="date" name="date" value="new Date()">
-            
+            <label for=""><span>{{this.prenom}}</span>sera absente le :</label>
+            <input type="date" name="date" value="new Date()" min="2020-01-01">
+
             <label for="">Motif</label>
             <textarea type="text" name="message" ></textarea>
 
