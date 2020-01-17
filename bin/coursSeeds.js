@@ -4,7 +4,7 @@ const Lieu = require('../models/lieu.js');
 const Tarif = require('../models/tarif.js');
 const Cours = require('../models/cours.js');
 
-mongoose.connect('mongodb://localhost/espaceFamille', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect('process.env.MONGODB_URI', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
   .then(() => {
     console.log('🔌 Connected to Mongo!');
   })

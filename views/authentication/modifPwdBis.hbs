@@ -1,18 +1,47 @@
-<form action="/modifPwdBis/{{user.resetPasswordToken}}" method="POST">
-<h2>Nom : {{user.username}}</h2>
-  <p>
-    <label for="password1">Nouveau mot de passe: </label>
-    <input type="password" name="password1" >
-  </p>
+<div class="page">
+  <div class="Left">
+    <div class="logoNew">
+      <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+       <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
+      <div class="titreMoyen">
+        <p>Mon profil</p>
+      </div>
+    </div>
 
-  <p>
-    <label for="password2">Confirmer votre nouveau mot de passe: </label>
-    <input type="password" name="password2">
-  </p>
+     <div class="modifPwdForm"></div>
 
-  {{#if errorMessage}}
-    <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
+      <form action="/modifPwdBis/{{user.resetPasswordToken}}" method="POST">
+      <h2>Nom : {{user.username}}</h2>
+        <p>
+          <label for="password1">Nouveau mot de passe: </label>
+          <input type="password" name="password1" >
+        </p>
 
-  <button type="submit">ENREGISTRER LE NOUVEAU MOT DE PASSE</button>
-</form>
+        <p>
+          <label for="password2">Confirmer votre nouveau mot de passe: </label>
+          <input type="password" name="password2">
+        </p>
+
+        {{#if errorMessage}}
+          <div class="error-message">{{errorMessage}}</div>
+        {{/if}}
+
+        <button type="submit">ENREGISTRER LE NOUVEAU MOT DE PASSE</button>
+      </form>
+
+    </div>
+
+    <div class="topRight">
+    <div id="modifPwdText">
+      <img src="/images/modifPwdText.svg" alt="mmodif mdp">
+    </div>
+    <div class="lestrembles">
+     <img src="/images/lestrembles.svg" alt="lestrembles">
+    </div>
+  </div>
+
+</div>

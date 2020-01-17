@@ -10,7 +10,7 @@ const bcryptSalt = 10;
 const salt = bcrypt.genSaltSync(bcryptSalt);
 
 
-mongoose.connect('mongodb://localhost/espaceFamille', {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true})
   .then(() => {
     console.log('🔌 Connected to Mongo!');
   })
