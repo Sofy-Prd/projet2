@@ -6,3 +6,10 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+bin/famillesSeeds.js
+bin/coursSeeds.js
+bin/lieuxSeeds.js
+bin/profsSeeds.js
+bin/tarifsSeeds.js
+
