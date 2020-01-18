@@ -7,8 +7,6 @@
       </li> 
     {{/each}}
   </ul>
-
-
 {{#each user.adherent}}
 <form action="/facture" id="{{this.prenom}}" class="lien" method="post">
     <input type="hidden" name="prenom" value="{{this.prenom}}">
@@ -22,5 +20,4 @@
     <p>  
 </form>
 {{/each}}
-
 </div>

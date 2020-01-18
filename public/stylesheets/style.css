@@ -11,7 +11,7 @@ body {
   margin:0; /* reset */
   background-color:#ef33b1;
   padding-left:2em;
-  font-family: 'Bungee', cursive;
+  font-family: 'Bungee', sans-serif;
   /* font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; */
 }
 
@@ -105,7 +105,7 @@ label {
 button {
   padding: 0 30px;
   color:black;
-  font-family: 'Bungee light', cursive;
+  font-family: 'Bungee light', sans-serif;
   text-transform: uppercase;
   background-color:#DAFEA4;
   border-radius: 6px !important; 
@@ -219,8 +219,8 @@ font-size:0.85em;
   color:black;
   font-size:13px;
   text-decoration: none;
-  top:-70px;
-  left:75px;
+  margin-left:20px;
+ 
 }
 
 
@@ -234,12 +234,18 @@ font-size:0.85em;
 }
 
 #logoImg {
-  position:relative;
-  top:-15px;
-  left:-261px;
   width:40px;
+  margin-left:30px;
 }
 
+.lienJaune {
+  display:flex;
+  background: url("/images/menuButton.png") center no-repeat;
+  align-items: center;
+  height:100px;
+  width:300px;
+
+}
 /* 
 ########  ########   #######  ######## #### ##       
 ##     ## ##     ## ##     ## ##        ##  ##       
@@ -347,7 +353,7 @@ font-size:0.85em;
   text-align: center;
   margin: 5px 0;
   line-height: 1;
-  font-family: 'Bungee light', cursive;
+  font-family: 'Bungee light', sans-serif;
  
 }
 
