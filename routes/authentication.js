@@ -9,6 +9,9 @@ var crypto = require('crypto');
 const flash = require('connect-flash');
 const nodemailer  = require('nodemailer');
 
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
+
 
 //Login process
 router.get('/login', (req, res) => {
