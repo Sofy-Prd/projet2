@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="page">
 
   <div class="Left">
@@ -59,9 +60,38 @@
 
   
   </div>
+=======
+<div id="pageFacture">
+<h1>Recevoir par email la facture pour:</h1>
+  <ul>
+    {{#each user.adherent}}
+      <li class="adherentPrenom"> 
+        <a href="#{{this.prenom}}">Prénom adhérent:{{this.prenom}}</a>
+      </li> 
+    {{/each}}
+  </ul>
+>>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
 
     <div class="boutonAbsence">
         <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>
     </div> 
 
+<<<<<<< HEAD
 
+=======
+{{#each user.adherent}}
+<form action="/facture" id="{{this.prenom}}" class="lien" method="post">
+    <input type="hidden" name="prenom" value="{{this.prenom}}">
+    <input type="hidden" name="nom" value="{{this.nom}}">
+    <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
+    <label for="">A imprimer en date du:</label>
+    <input type="date" name="date" value="new Date()" min="2020-01-01">
+    <p>
+        Prénom de l'adhérent: {{this.prenom}}
+        <button>Envoyer email</button>
+    <p>  
+</form>
+{{/each}}
+
+</div>
+>>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
