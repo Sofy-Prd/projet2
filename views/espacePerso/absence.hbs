@@ -16,25 +16,23 @@
 
       <div class="absenceForm">
      
-          {{!-- <h1>Prévenir de l'absence de :</h1>
+          <h1>Prévenir de l'absence de :</h1>
             <ul>
               {{#each user.adherent}}
               <li>
-                <a id="{{this.prenom}}" href="#{{this.prenom}}">{{this.prenom}}</a>
+                <a href="#{{this.prenom}}">{{this.prenom}}</a>
               </li> 
               {{/each}}
-            </ul> --}}
+            </ul>
 
 
       {{#each user.adherent}}
-       <form action="/absence" method="post">
+      <form action="/absence" id="{{this.prenom}}" class="lien" method="post">
         <div class="{{this.prenom}}">
-          {{!-- <input type="hidden" name="prenom"  value="{{prenom}}">
-          <input type="hidden" name="nom" value="{{nom}}"> --}}
       
-          <form  action="/send-email" method="post">
-          <input type="hidden" name="prenom"  value="{{this.prenom}}">
-          <input type="hidden" name="nom" value="{{nom}}">
+          {{!-- <form  action="/send-email" method="post"> --}}
+            <input type="hidden" name="prenom"  value="{{this.prenom}}">
+            <input type="hidden" name="nom" value="{{nom}}">
 
             <label for=""><span>{{this.prenom}}</span> sera absente le :</label>
             <input type="date" name="date" value="new Date()">
@@ -48,9 +46,9 @@
             <input type="hidden" name="profEmail" value="{{this.cours1.prof.email}}">
 
             <button type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
-          </form>
+          {{!-- </form> --}}
         </div>
-            </form>
+      </form>
       {{/each}}
   
         

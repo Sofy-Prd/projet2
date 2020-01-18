@@ -20,11 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
 let adherentTab = [...document.getElementsByClassName("adherentPrenom")];
 console.log(adherentTab);
 
-adherentTab.forEach(function(adherent){
-  adherent.onclick = function() {
-    document.querySelector(".lien").classList.remove("dontDisplay");
-  };
-});
+// adherentTab.forEach(function(adherent){
+//   adherent.onclick = function(event) {
+//     //event.preventDefault();
+
+//     //document.querySelector(".lien").classList.remove("dontDisplay");
+//   };
+// });
 
 
 

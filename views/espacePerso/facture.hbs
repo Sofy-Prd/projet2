@@ -1,17 +1,16 @@
-
+<div id="pageFacture">
 <h1>Recevoir par email la facture pour:</h1>
-  {{!-- <ul>
+  <ul>
     {{#each user.adherent}}
       <li class="adherentPrenom"> 
-        <a href="{{this.prenom}}">Prénom adhérent:{{this.prenom}}</a>
+        <a href="#{{this.prenom}}">Prénom adhérent:{{this.prenom}}</a>
       </li> 
     {{/each}}
-  </ul> --}}
+  </ul>
 
 
 {{#each user.adherent}}
-<form action="/facture" class="lien" method="post">
-  <form  action="/send-email" method="post" id="{{this.prenom}}" >
+<form action="/facture" id="{{this.prenom}}" class="lien" method="post">
     <input type="hidden" name="prenom" value="{{this.prenom}}">
     <input type="hidden" name="nom" value="{{this.nom}}">
     <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
@@ -21,6 +20,7 @@
         Prénom de l'adhérent: {{this.prenom}}
         <button>Envoyer email</button>
     <p>  
-  </form>
 </form>
 {{/each}}
+
+</div>

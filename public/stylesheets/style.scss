@@ -446,6 +446,11 @@ width:50px;
 ##     ## ########   ######  ######## ##    ##  ######  ######## 
  */
 
+.lien {
+  display:none;
+}
+form.lien:target {display:block;}
+
 .titreMoyenAbsence {
 
   position:relative;
@@ -521,6 +526,11 @@ margin-right:auto;
 ##       ######### ##          ##    ##     ## ##   ##   ##       
 ##       ##     ## ##    ##    ##    ##     ## ##    ##  ##       
 ##       ##     ##  ######     ##     #######  ##     ## ########  */
+
+.lien {
+  display:none;
+}
+form.lien:target {display:block;}
 
 .factureForm {
   margin-top:150px;
