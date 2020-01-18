@@ -1,21 +1,22 @@
 
 <h1>Recevoir par email la facture pour:</h1>
-  <ul>
+  {{!-- <ul>
     {{#each user.adherent}}
-      <li> 
+      <li class="adherentPrenom"> 
         <a href="{{this.prenom}}">Prénom adhérent:{{this.prenom}}</a>
       </li> 
     {{/each}}
-  </ul>
+  </ul> --}}
 
 
 {{#each user.adherent}}
-<form action="/facture" method="post">
-  <form id="{{this.prenom}}" action="/send-email" method="post">
+<form action="/facture" class="lien" method="post">
+  <form  action="/send-email" method="post" id="{{this.prenom}}" >
     <input type="hidden" name="prenom" value="{{this.prenom}}">
     <input type="hidden" name="nom" value="{{this.nom}}">
     <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
-    <input type="hidden" name="date" value="new Date()">
+    <label for="">A imprimer en date du:</label>
+    <input type="date" name="date" value="new Date()" min="2020-01-01">
     <p>
         Prénom de l'adhérent: {{this.prenom}}
         <button>Envoyer email</button>

@@ -9,7 +9,6 @@ const Lieu = require('../models/lieu');
 const Tarif = require('../models/tarif');
 const templates = require('../templates/template');
 
-// const templateFacture = require('../templates/factureHtml');
 
 let transporter = nodemailer.createTransport({
   service: 'Gmail',
@@ -244,9 +243,7 @@ router.post("/facture", (req, res) => {
   let nom = req.body.nom;
   let tarif = req.body.tarif;
   let date = req.body.date;
-  let subject = `Facture ${prenom} ${nom}`;
-
-  console.log(date);
+  let subject = `Facture ${prenom} ${nom} ${date}`;
 
   let transporter = nodemailer.createTransport({
     service: 'Gmail',

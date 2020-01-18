@@ -29,6 +29,8 @@
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "mjml": "^4.5.1",
+    "mjml-with-images-loader": "^2.0.0",
     "nodemon": "^1.12.1"
   }
 }
