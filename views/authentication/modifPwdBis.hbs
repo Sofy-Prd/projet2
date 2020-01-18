@@ -8,42 +8,27 @@
        <img src="/images/ellipse.png" alt="ellipse">
       </div>   
       <div class="titreMoyen">
-<<<<<<< HEAD
-        <p>Mon profil</p>
-=======
         <p>MODIFICATION DU MOT DE PASSE</p>
->>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
       </div>
     </div>
-
      <div class="modifPwdForm"></div>
-
-<<<<<<< HEAD
-=======
      
-
->>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
       <form action="/modifPwdBis/{{user.resetPasswordToken}}" method="POST">
       <h2>Nom : {{user.username}}</h2>
         <p>
           <label for="password1">Nouveau mot de passe: </label>
           <input type="password" name="password1" >
         </p>
-
         <p>
           <label for="password2">Confirmer votre nouveau mot de passe: </label>
           <input type="password" name="password2">
         </p>
-
         {{#if errorMessage}}
           <div class="error-message">{{errorMessage}}</div>
         {{/if}}
-
         <button type="submit">ENREGISTRER</button>
       </form>
-
     </div>
-
     <div class="topRight">
     <div id="modifPwdText">
       <img src="/images/modifPwdText.svg" alt="mmodif mdp">
@@ -52,5 +37,4 @@
      <img src="/images/lestrembles.svg" alt="lestrembles">
     </div>
   </div>
-
 </div>

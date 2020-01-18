@@ -1,66 +1,3 @@
-<<<<<<< HEAD
-<div class="page">
-
-  <div class="Left">
-    <div class="logoNew">
-        <img src="/images/logoNew.png" alt="nouveau logo">
-    </div>
-    <div class="titrePage">
-      <div class="ellipse">
-        <img src="/images/ellipse.png" alt="ellipse">
-      </div>   
-
-      <div class="titreMoyenAbsence">
-          <p>Recevoir une facture</p>
-      </div>
-    </div>
-
-    <div class="factureForm">
-      {{!-- <ul>
-        {{#each user.adherent}}
-        <form action="/facture" method="post">
-          <li> 
-            <a href="{{this.prenom}}" >Prénom adhérent:{{this.prenom}}/>
-          </li> 
-        {{/each}}
-      </ul> --}}
-
-
-        {{#each user.adherent}}
-          <input type="hidden" name="prenom" id="" value="{{prenom}}">
-          <input type="hidden" name="nom" id="" value="{{nom}}">
-
-          <form id="{{this.prenom}}" action="/send-email" method="post">
-          <p>
-            pour: <span>{{this.prenom}}</span>
-            <button>Envoyer email</button>
-          <p>  
-          </form>
-       </form>
-     
-    {{/each}}
-  </div>
-   </div>
-       
-
-      
-
-   <div class="topRight">
-    <div id="absenceRight">
-      <img src="/images/factureText.svg" alt="absence">
-    </div>
-    <div class="lestrembles">
-      <img src="/images/lestrembles.svg" alt="lestrembles">
-    </div>
-      
-  </div>
-
-   
-</div>
-
-  
-  </div>
-=======
 <div id="pageFacture">
 <h1>Recevoir par email la facture pour:</h1>
   <ul>
@@ -70,15 +7,6 @@
       </li> 
     {{/each}}
   </ul>
->>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
-
-    <div class="boutonAbsence">
-        <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>
-    </div> 
-
-<<<<<<< HEAD
-
-=======
 {{#each user.adherent}}
 <form action="/facture" id="{{this.prenom}}" class="lien" method="post">
     <input type="hidden" name="prenom" value="{{this.prenom}}">
@@ -92,6 +20,4 @@
     <p>  
 </form>
 {{/each}}
-
 </div>
->>>>>>> 67b6bed4a9ba873437a6573c345aa8fca7df6a9f
