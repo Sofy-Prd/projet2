@@ -18,7 +18,6 @@ const oauth2Client = new OAuth2(
   "https://developers.google.com/oauthplayground"
 );
 
-
 const smtpTransport = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -36,15 +35,6 @@ oauth2Client.setCredentials({
 });
 const accessToken = oauth2Client.getAccessToken()
 
-
-
-let transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: process.env.LOGINASSOS,
-    pass: process.env.GMAILSECRET 
-  }
-});
 
 
 /* GET home page */
