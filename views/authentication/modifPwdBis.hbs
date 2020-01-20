@@ -1,40 +1,55 @@
+{{!-- VIEW MODIFPWDBIS --}}
+
 <div class="page">
+  
   <div class="Left">
     <div class="logoNew">
       <img src="/images/logoNew.png" alt="nouveau logo">
     </div>
+    
     <div class="titrePage">
       <div class="ellipse">
-       <img src="/images/ellipse.png" alt="ellipse">
+        <img src="/images/ellipse.png" alt="ellipse">
       </div>   
-      <div class="titreMoyen">
-        <p>MODIFICATION DU MOT DE PASSE</p>
+      <div class="titreMoyenModif">
+        <p>Modification du mot de passe</p>
       </div>
     </div>
-     <div class="modifPwdForm"></div>
-     
+    
+    <div class="modifPwdForm">
       <form action="/modifPwdBis/{{user.resetPasswordToken}}" method="POST">
-      <h2>Nom : {{user.username}}</h2>
+        <h2>Nom : {{user.username}}</h2>
         <p>
           <label for="password1">Nouveau mot de passe: </label>
-          <input type="password" name="password1" >
+          <div class="rectangleJaune"></div>
+          <div class="inputForm">
+          <input type="password" name="password1">
+          </div>
         </p>
         <p>
           <label for="password2">Confirmer votre nouveau mot de passe: </label>
+          <div class="rectangleJaune"></div>
+          <div class="inputForm">
           <input type="password" name="password2">
+          </div>
         </p>
+
         {{#if errorMessage}}
           <div class="error-message">{{errorMessage}}</div>
         {{/if}}
-        <button type="submit">ENREGISTRER</button>
+
+        <button type="submit">ENREGISTRER LE NOUVEAU MOT DE PASSE</button>
       </form>
     </div>
-    <div class="topRight">
+  </div>  
+  
+  <div class="topRight">
     <div id="modifPwdText">
-      <img src="/images/modifPwdText.svg" alt="mmodif mdp">
+      {{!-- image a changer --}}
+      <img src="/images/modifPwdText.svg" alt="modif mdp">
     </div>
     <div class="lestrembles">
-     <img src="/images/lestrembles.svg" alt="lestrembles">
+      <img src="/images/lestrembles.svg" alt="lestrembles">
     </div>
   </div>
 </div>
