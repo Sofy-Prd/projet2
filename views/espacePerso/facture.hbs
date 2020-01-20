@@ -1,23 +1,55 @@
-<div id="pageFacture">
-<h1>Recevoir par email la facture pour:</h1>
-  <ul>
-    {{#each user.adherent}}
-      <li class="adherentPrenom"> 
-        <a href="#{{this.prenom}}">Prénom adhérent:{{this.prenom}}</a>
-      </li> 
-    {{/each}}
-  </ul>
-{{#each user.adherent}}
-<form action="/facture" id="{{this.prenom}}" class="lien" method="post">
-    <input type="hidden" name="prenom" value="{{this.prenom}}">
-    <input type="hidden" name="nom" value="{{this.nom}}">
-    <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
-    <label for="">A imprimer en date du:</label>
-    <input type="date" name="date" value="new Date()" min="2020-01-01">
-    <p>
-        Prénom de l'adhérent: {{this.prenom}}
-        <button>Envoyer email</button>
-    <p>  
-</form>
-{{/each}}
+{{!-- VIEW FACTURE --}}
+
+
+<div class="page">
+
+  <div class="Left">
+    <div class="logoNew">
+      <img src="/images/logoNew.png" alt="nouveau logo">
+    </div>
+    <div class="titrePage">
+      <div class="ellipse">
+        <img src="/images/ellipse.png" alt="ellipse">
+      </div>   
+      <div class="titreMoyenAbsence">
+        <p>Facture par email</p>
+      </div>
+    </div>
+    <div class="absenceForm">
+      <h4 class="titreCliquer">Cliquez sur l'adhérent concerné :</h4>
+        <ul>
+        {{#each user.adherent}}
+          <li class="adherentPrenom"> 
+            <a href="#{{this.prenom}}" class="prenomClick">{{this.prenom}}</a>
+          </li> 
+        {{/each}}
+        </ul>
+
+        {{#each user.adherent}}
+        <form action="/facture" id="{{this.prenom}}" class="lien" method="post">
+          <div class="{{this.prenom}} formAdherent">
+            <input type="hidden" name="prenom" value="{{this.prenom}}">
+            <input type="hidden" name="nom" value="{{this.nom}}">
+            <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
+            <label class="factureBox" for="">A éditer en date du:</label>
+            <input class="factureBox" type="date" name="date" value="new Date()" min="2020-01-01">
+            <button class="factureBox">Facture pour {{this.prenom}}</button>    
+          </div>
+        </form>
+        {{/each}}
+    </div>   
+  </div>
+  
+  <div class="topRight">
+    <div id="absenceRight">
+      {{!-- image a changer --}}
+      <img src="/images/absenceText.svg" alt="absence"> 
+    </div>
+    <div class="lestrembles">
+      <img src="/images/lestrembles.svg" alt="lestrembles">
+    </div>
+  </div>
 </div>
+
+<div class="boutonAbsence">
+  <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>

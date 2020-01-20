@@ -16,8 +16,9 @@
       </div>
     
     <div class="adherents">
-    <ul>
+    {{!-- <ul> --}}
       {{#each user.adherent}}
+      <div class="adherent">
         <span>{{this.prenom}}</span> 
         <p><b>{{this.cours1.nom}}</b> </p> 
         <p> <em>{{this.cours1.jour}} {{this.cours1.horaire}}</em></p> 
@@ -28,8 +29,9 @@
         <p>avec <b>{{this.cours1.prof.prenom}}</b> </p>
         <img src={{this.cours1.prof.photo}} alt="photo de la prof">  
       </div>
+      </div>
       {{/each}}
-    </ul>
+
     </div>
   </div>
 
@@ -41,4 +43,8 @@
       <img src="/images/lestrembles.svg" alt="lestrembles">
     </div>
   </div>    
+</div>
+
+<div class="retourAdh">
+  <a class="bouton" href="/mon-accueil">retour à l'ACCUEIL</a>
 </div>

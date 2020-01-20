@@ -1,4 +1,6 @@
-* :before, after {
+{{!-- CSS --}}
+
+* :before, :after {
   box-sizing:border-box;
   
   }
@@ -146,7 +148,7 @@ button {
   color:white;
   width:250px;
   margin-left:28px;
- 
+
 }
 
 .logout {
@@ -170,7 +172,31 @@ button {
 ########  #######   ######   #### ##    ## 
  */
 
-#connexion {
+.photoLogin {
+ display:none;
+}
+
+@media (min-width: 900px) {
+  .photoLogin {
+    width:50vw;
+    height:100vh;
+    justify-content: center;
+    margin-left:100px;
+    display: block;
+   
+  }
+}
+
+
+.photoLogin img {
+  min-width:100%;
+  margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+  transform: translateY(-50%);
+ 
+}
+
+
+ #connexion {
   /* background-color: crimson; */
   margin-right:5px;
   margin-left:auto;
@@ -213,6 +239,34 @@ font-size:0.85em;
   /* background-color: crimson; */
   margin-left:auto;
 }
+
+.accueil {
+  margin-bottom:300px;
+}
+
+@media (min-width: 900px) {
+  .liensAccueil {
+    display:flex;
+    justify-content: space-around;
+   align-items: center;
+   margin-bottom: 20vh;
+  }
+  .accueil {
+    margin-bottom:50px;
+  }
+ 
+}
+
+
+
+
+
+.logout {
+  margin-left:auto;
+  margin-right:20px;
+  margin-bottom:20px;
+}
+
 
 .textLien {
   position:relative;
@@ -257,6 +311,27 @@ font-size:0.85em;
  */
 .profil {
     margin-top: 100px;
+}
+
+@media (min-width: 900px) {
+  .profil {
+   
+    display:flex;
+  }
+  .boutonsProfil {
+    display:inline;
+    width:100%;
+    margin-top:30px;
+    margin-left: 100px;
+    flex-direction:column;
+  }
+
+  .boutonsProfil .bouton {
+    height:60px;
+    font-size:16px;
+    width:100px;
+    padding:20% 20px 0 20px;
+  }
 }
 
 
@@ -378,6 +453,32 @@ font-size:0.85em;
   margin-top: 100px;
 }
 
+@media (min-width: 900px) {
+  .adherents {
+    display:flex;
+    width:80vw;
+    justify-content: space-around;
+  }
+
+  .adherents img {
+    width:75px;
+  }
+
+  .retourAdh {
+     margin-left:80vw;
+  }
+}
+
+.retourAdh {
+  margin-left:45%;
+  margin-top:30px;
+  margin-right:20px;
+  margin-bottom:20px;
+
+}
+
+
+
 .adherents p {
   padding:0;
   margin-top:0;
@@ -385,6 +486,7 @@ font-size:0.85em;
   margin-left:0;
   color:white;
 }
+
 .adherents img {
 width:50px;
 }
@@ -455,6 +557,15 @@ width:50px;
 .lien {display:none;}
 form.lien:target {display:block;}
 
+@media (min-width: 900px) {
+ .absenceForm {
+   display:flex;
+   justify-content: space-between;
+   width:800px;
+
+ }
+}
+
 .titreMoyenAbsence {
 
   position:relative;
@@ -472,7 +583,7 @@ form.lien:target {display:block;}
 }
 
 .absenceForm {
-  margin-top:100px;
+  margin-top:130px;
 }
 
 .absenceForm span {
@@ -493,6 +604,42 @@ form.lien:target {display:block;}
   margin-right:10px;
  
 }
+
+.titreCliquer {
+  font-weight: lighter;
+  color: black;
+  margin-top:6px;
+  margin-bottom:0;
+  padding:0;
+}
+
+li {
+  list-style-type: circle;
+  color: white;
+  font-style: italic;
+}
+
+a.prenomClick {
+  text-decoration: none;
+}
+
+.formAdherent {
+  display: flex;
+  flex-direction: column;  
+  align-items:stretch;
+}
+
+.absenceBox {
+  flex:1;
+  width: 100%;
+}
+
+button.absenceBox {
+  margin-top: 1em;
+  font-size: 1em;
+}
+
+
 /* 
 ##     ##  #######  ########  #### ########    ########  ##      ## ########  
 ###   ### ##     ## ##     ##  ##  ##          ##     ## ##  ##  ## ##     ## 
@@ -502,7 +649,16 @@ form.lien:target {display:block;}
 ##     ## ##     ## ##     ##  ##  ##          ##        ##  ##  ## ##     ## 
 ##     ##  #######  ########  #### ##          ##         ###  ###  ########   */
 
-
+.titreMoyenModif {
+  position:relative;
+  top:-115px;
+  font-family: 'Barlow light', sans-serif;
+  font-size:24px;
+  color:white;
+  width:250px;
+  margin-left:28px;
+ 
+}
 
 #modifPwdText {
    width:20px;
@@ -522,6 +678,8 @@ width:250px;
 margin-left:10px;
 margin-right:auto;
 }
+
+
 /* 
 ########    ###     ######  ######## ##     ## ########  ######## 
 ##         ## ##   ##    ##    ##    ##     ## ##     ## ##       
@@ -546,4 +704,44 @@ form.lien:target {display:block;}
   font-weight:bold;
   font-size: 22px;
   color:#DAFEA4;
+}
+
+.titreCliquer {
+  font-weight: lighter;
+  color: white;
+  margin-top:6px;
+  margin-bottom:0;
+  padding:0;
+}
+
+li {
+  list-style-type: circle;
+  color: white;
+  font-style: italic;
+}
+
+a.prenomClick {
+  text-decoration: none;
+}
+
+.boutonAbsence {
+  text-align: right;
+  margin-right:10px;
+ 
+}
+
+.formAdherent {
+  display: flex;
+  flex-direction: column;  
+  align-items:stretch;
+}
+
+.factureBox {
+  flex:1;
+  width: 100%;
+}
+
+button.factureBox {
+  margin-top: 1em;
+  font-size: 1em;
 }
