@@ -20,13 +20,13 @@
       {{#each user.adherent}}
       <div class="adherent">
         <span>{{this.prenom}}</span> 
-        <p><b>{{this.cours1.nom}}</b> </p> 
+        <p class="cours"><b>{{this.cours1.nom}}</b> </p> 
         <p> <em>{{this.cours1.jour}} {{this.cours1.horaire}}</em></p> 
         <p><em>{{this.cours1.lieu.nom}} </em></p>
 
 
         <div class="prof">
-        <p>avec <b>{{this.cours1.prof.prenom}}</b> </p>
+        <p>avec <span>{{this.cours1.prof.prenom}}</span> </p>
         <img src={{this.cours1.prof.photo}} alt="photo de la prof">  
       </div>
       </div>

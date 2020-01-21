@@ -16,34 +16,35 @@
       </div>
     </div>
     <div class="absenceForm">
-      <h4 class="titreCliquer">Cliquez sur l'adhérent concerné :</h4>
-        <ul>
-        {{#each user.adherent}}
-          <li class="adherentPrenom"> 
-            <a href="#{{this.prenom}}" class="prenomClick">{{this.prenom}}</a>
-          </li> 
-        {{/each}}
-        </ul>
-
-        {{#each user.adherent}}
-        <form action="/facture" id="{{this.prenom}}" class="lien" method="post">
-          <div class="{{this.prenom}} formAdherent">
-            <input type="hidden" name="prenom" value="{{this.prenom}}">
-            <input type="hidden" name="nom" value="{{this.nom}}">
-            <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
-            <label class="factureBox" for="">A éditer en date du:</label>
-            <input class="factureBox" type="date" name="date" value="new Date()" min="2020-01-01">
-            <button class="factureBox">Facture pour {{this.prenom}}</button>    
-          </div>
-        </form>
-        {{/each}}
+        <div class="prenom">
+          <h4 class="titreCliquer">Cliquez sur l'adhérent concerné :</h4>
+            <ul>
+            {{#each user.adherent}}
+              <li class="adherentPrenom"> 
+                <a href="#{{this.prenom}}" class="prenomClick"><span>{{this.prenom}}</span></a>
+              </li> 
+            {{/each}}
+            </ul>
+        </div>
+      {{#each user.adherent}}
+      <form action="/facture" id="{{this.prenom}}" class="lien" method="post">
+        <div class="{{this.prenom}} formAdherent">
+          <input type="hidden" name="prenom" value="{{this.prenom}}">
+          <input type="hidden" name="nom" value="{{this.nom}}">
+          <input type="hidden" name="tarif" value="{{this.cours1.duree.montant}}">
+          <label class="factureBox" for="">A éditer en date du:</label>
+          <input class="factureBox" type="date" name="date" value="new Date()" min="2020-01-01">
+          <button class="factureBox">Facture pour {{this.prenom}}</button>    
+        </div>
+      </form>
+      {{/each}}
     </div>   
   </div>
   
   <div class="topRight">
     <div id="absenceRight">
       {{!-- image a changer --}}
-      <img src="/images/absenceText.svg" alt="absence"> 
+      <img src="/images/factureText.svg" alt="absence"> 
     </div>
     <div class="lestrembles">
       <img src="/images/lestrembles.svg" alt="lestrembles">
