@@ -27,7 +27,7 @@ const smtpTransport = nodemailer.createTransport({
   }
 });
 oauth2Client.setCredentials({
-  refresh_token: "1//04O1JtOIXrEHlCgYIARAAGAQSNwF-L9IrKvETwC2gOcc0fuFbcR2iB1vhIItEJ9g-Oa3Sej-eQKlcrvGp5yFIRiajoS1t8zHKXq8"
+  refresh_token: process.env.RefreshToken
 });
 const accessToken = oauth2Client.getAccessToken()
 
