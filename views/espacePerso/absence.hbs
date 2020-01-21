@@ -21,7 +21,7 @@
         <ul>
           {{#each user.adherent}}
             <li>
-              <a href="#{{this.prenom}}" class="prenomClick">{{this.prenom}}</a>
+              <a href="#{{this.prenom}}" class="prenomClick"><span>{{this.prenom}}</span></a>
             </li> 
           {{/each}}
         </ul>
@@ -37,9 +37,9 @@
             <label class="absenceBox" for=""><span>{{this.prenom}}</span> sera absente le :</label>
             <input class="absenceBox" type="date" name="date" value="new Date()">    
             <label class="absenceBox" for="">Motif </label>
-            <textarea class="absenceBox" type="text"   n  ame="message" ></textarea>
+            <textarea class="absenceBox" type="text"   name="message" ></textarea>
             <input type="hidden" name="profEmail" value="{{this.cours1.prof.email}}">
-            <button class="absenceBox" type="submit">Envoyer à {{this.cours1.prof.prenom}} </button>   
+            <button class="absenceBox" type="submit">Prévenir {{this.cours1.prof.prenom}} </button>   
           </div>
         </form>
       {{/each}}     

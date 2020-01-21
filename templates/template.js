@@ -118,7 +118,7 @@ module.exports = {
           
           <p style="text-align:right">Tremblay en France, le ${date}</p>
           
-          <img src="https://res.cloudinary.com/dkwcrwudm/image/upload/v1579337160/Projet2%20-%20Les%20Trembles/signature_mky9yd.png" alt="logo" width="80px" align="right"/></div>
+          <img src="https://res.cloudinary.com/dkwcrwudm/image/upload/v1579629470/Projet2%20-%20Les%20Trembles/signatureTransp3_tsbw56.png" alt="logo" width="80px" align="right"/></div>
     
               </td>
             </tr>
