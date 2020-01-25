@@ -18,7 +18,7 @@ Les adhérents doivent modifier le mot de passe fourni par l'association à la 1
 L'adhérent doit dans un premier temps renseigner son email et s'il est connu de la base, il recevra par email un lien sécurisé (avec token) valide 1H
 pour ré-initialiser son mot de passe.
 
-
+![alt text](/images/pageLogin.png)
 
 
 
