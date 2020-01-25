@@ -5,6 +5,7 @@
 Permettre aux adhérents d'une association sportive d'avoir accès à leurs informations personnelles et relatives aux cours sivis par les membres de la famille.
 Il est possible de mofifier ses informations (adresse, email, téléphone...).
 Dans l'espace personnel, les adhérents peuvent prévenir les professeurs en cas d'absence et s'envoyer une facture sur leur boîte email.
+Ce site est responsive (en mobile first).
 
 ### 2. Sécurité et Authenfication
 A chaque modification de mot de passe, la confirmation du mot de passe est nécesaaire.
@@ -18,8 +19,14 @@ Les adhérents doivent modifier le mot de passe fourni par l'association à la 1
 L'adhérent doit dans un premier temps renseigner son email et s'il est connu de la base, il recevra par email un lien sécurisé (avec token) valide 1H
 pour ré-initialiser son mot de passe.
 
-![alt text](/images/pageLogin.png)
+### 3. Services proposés 
+#### 3.1. Accès à ses informations personnelles et modification possible
+#### 3.2. Accès aux informations relatives aux cours suivis par les adhérents
+#### 3.3. Gestion des absences
+#### 3.4. Gestion des factures
+
+![alt text](/public/images/ecrans.jpg)
 
 
 
-site responsive (en mobile first)
+
