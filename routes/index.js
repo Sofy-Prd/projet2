@@ -29,7 +29,6 @@ oauth2Client.setCredentials({
   refresh_token: "1//04O1JtOIXrEHlCgYIARAAGAQSNwF-L9IrKvETwC2gOcc0fuFbcR2iB1vhIItEJ9g-Oa3Sej-eQKlcrvGp5yFIRiajoS1t8zHKXq8"
 });
 const accessToken = oauth2Client.getAccessToken()
-
 /* GET home page */
 router.get('/', function (req, res, next) {
   if (!req.user) {
@@ -38,7 +37,6 @@ router.get('/', function (req, res, next) {
   }
   res.render("espacePerso/mon-accueil", { user: req.user });
 });
-
 //Routes pour mon-accueil (private page)
 router.get("/mon-accueil", (req, res) => {
   if (!req.user) {
@@ -53,7 +51,6 @@ router.get("/mon-accueil", (req, res) => {
   // ok, req.user is defined
   res.render("espacePerso/mon-accueil", { user: req.user });
 });
-
 //Profil (private page)
 router.get("/profil", (req, res, next) => {
   if (!req.user) {
@@ -81,7 +78,6 @@ router.get("/profil", (req, res, next) => {
     next(err);
   });
 });
-
 router.get("/adherents", (req, res, next) => {
   if (!req.user) {
     res.redirect('/login'); // not logged-in
@@ -120,7 +116,6 @@ router.get("/adherents", (req, res, next) => {
     next(err);
   });
 });
-
 //Editer profil famille/adherent (private page)
 router.get("/edit-profil", (req, res, next) => {
   if (!req.user) {
@@ -147,7 +142,6 @@ router.post("/edit-profil", (req, res, next) => {
     ;
   }
 });
-
 //Absence adherent (private page)
 router.get("/absence", (req, res) => {
     if (!req.user) {
