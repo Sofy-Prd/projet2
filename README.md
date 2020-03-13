@@ -2,7 +2,7 @@
 ## Les Trembles 
 
 ### 1. Présentation du projet
-Permettre aux adhérents d'une association sportive d'avoir accès à leurs informations personnelles et relatives aux cours sivis par les membres de la famille.
+Permettre aux adhérents d'une association sportive d'avoir accès à leurs informations personnelles et relatives aux cours suivis par les membres de la famille.
 Il est possible de mofifier ses informations (adresse, email, téléphone...).
 Dans l'espace personnel, les adhérents peuvent prévenir les professeurs en cas d'absence et s'envoyer une facture sur leur boîte email.
 Ce site est responsive (en mobile first).
