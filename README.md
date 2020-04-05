@@ -7,7 +7,7 @@ Il est possible de mofifier ses informations (adresse, email, téléphone...).
 Dans l'espace personnel, les adhérents peuvent prévenir les professeurs en cas d'absence et s'envoyer une facture sur leur boîte email.
 Ce site est responsive (en mobile first).
 
-### 2. Sécurité et Authenfication
+### 2. Sécurité et Authentification
 A chaque modification de mot de passe, la confirmation du mot de passe est nécesaaire.
 
 #### 2.1. Obligation de ré-initialiser le mot de passe à la 1ère connexion
