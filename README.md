@@ -1,13 +1,15 @@
 # Espace Personnel pour les membres d'une association sportive 
 ## Les Trembles 
+Lien vers le site :
+http://lestrembles.herokuapp.com/login
 
 ### 1. Présentation du projet
-Permettre aux adhérents d'une association sportive d'avoir accès à leurs informations personnelles et relatives aux cours sivis par les membres de la famille.
+Permettre aux adhérents d'une association sportive d'avoir accès à leurs informations personnelles et relatives aux cours suivis par les membres de la famille.
 Il est possible de mofifier ses informations (adresse, email, téléphone...).
 Dans l'espace personnel, les adhérents peuvent prévenir les professeurs en cas d'absence et s'envoyer une facture sur leur boîte email.
 Ce site est responsive (en mobile first).
 
-### 2. Sécurité et Authenfication
+### 2. Sécurité et Authentification
 A chaque modification de mot de passe, la confirmation du mot de passe est nécesaaire.
 
 #### 2.1. Obligation de ré-initialiser le mot de passe à la 1ère connexion
@@ -25,8 +27,14 @@ pour ré-initialiser son mot de passe.
 #### 3.3. Gestion des absences
 #### 3.4. Gestion des factures
 
-![alt text](/public/images/ecrans.jpg)
+### 4. Installation 
+#### Nécessite les dépendances NodeJs et MongoDB
+- clôner le répertoire
+- dans le répertoire racine, lancer un **npm install**
+- puis lancer le serveur avec **npm start**
 
+
+![alt text](/public/images/ecrans.jpg)
 
 
 
