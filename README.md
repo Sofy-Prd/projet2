@@ -28,6 +28,6 @@ pour ré-initialiser son mot de passe.
 ![alt text](/public/images/ecrans.jpg)
 
 
-Lien:
+Lien vers le site :
 http://lestrembles.herokuapp.com/login
 
